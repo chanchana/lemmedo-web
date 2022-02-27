@@ -3,18 +3,34 @@ import { Content } from "../constants/content"
 import { Style } from "../styles/style"
 import PictureSrc from "../assets/picture.png"
 import React from "react";
+import { Parameter } from "../constants/parameter";
+import { useNavigation } from "../hooks/useNavigation";
+import { NavigationContext } from "../contexts/navigation";
 
 const height = 710;
 
 export const Title = () => {
+    const sectionRef = React.useRef(null)
+    useNavigation(sectionRef)
+    const { setRoute } = React.useContext(NavigationContext)
+    
     const FadeOverlay = () => <Box width="100%" background={Style.Gradient.FadeBlackBottom} height={height} position="absolute" left={0} top={0} />;
     const Picture = () => (
         <Box position="absolute" bottom={0} right="-20px">
             <img src={PictureSrc} height={510} />
         </Box>
     );
+
+    const handleClick = () => {
+        if (setRoute) {
+            setRoute(undefined)
+            setTimeout(() => {
+                setRoute(Parameter.Navigation.Contact.Path)
+            }, 100)
+        }
+    }
     return (
-        <React.Fragment>
+        <div ref={sectionRef}>
             <FadeOverlay />
             <Box height={height} position="relative">
                 <Picture />
@@ -32,10 +48,10 @@ export const Title = () => {
                         <Typography variant="caption">{Content.Title.Caption}</Typography>
                     </Box>
                     <Box marginTop={Style.Spacing.L}>
-                        <Button variant="large" backgroundColor={Style.Gradient.PurpleToPink}>Contact Me</Button>
+                        <Button onClick={handleClick} variant="large" backgroundColor={Style.Gradient.PurpleToPink}>Contact Me</Button>
                     </Box>
                 </Box>
             </Box>
-        </React.Fragment>
+        </div>
     )
 }

@@ -1,5 +1,6 @@
 export const Parameter = {
     ShowcasesInitialVisibleCount: 6,
+    RouteQueryStringKey: 'route',
 
     Navigation: {
         Home: {

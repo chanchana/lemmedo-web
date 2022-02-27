@@ -6,11 +6,16 @@ import { SectionHeading } from "../components/SectionHeader"
 import { Timeline } from "../components/Timeline"
 import { WorkExperienceCard } from "../components/WorkExperienceCard"
 import { Content } from "../constants/content"
+import { Parameter } from "../constants/parameter"
+import { useNavigation } from "../hooks/useNavigation"
 import { Style } from "../styles/style"
 
 export const About = () => {
+    const sectionRef = React.useRef(null)
+    useNavigation(sectionRef, Parameter.Navigation.About.Path)
+    
     return (
-        <React.Fragment>
+        <div ref={sectionRef}>
             <SectionHeading title={Content.About.Title} subtitle={Content.About.Subtitle} />
             <Stack vertical gap={Style.Spacing.XXL}>
                 <Section title={Content.About.WorkExperienceHeading}>
@@ -35,6 +40,6 @@ export const About = () => {
                     </Card>
                 </Section>
             </Stack>
-        </React.Fragment>
+        </div>
     )
 }

@@ -16,6 +16,7 @@ interface Props {
     block?: boolean;
     interactive?: boolean;
     fullWidth?: boolean;
+    onClick?: () => void;
 }
 
 const StyledDiv = Styled.div<Props>`
@@ -43,6 +44,6 @@ export const Typography = (props: Props) => {
         (props.color === 'secondary' || !props.color) ? Style.Color.Light50 :
         props.color;
     return (
-        <StyledDiv className={props.variant} {...props} color={color}>{props.children}</StyledDiv>
+        <StyledDiv onClick={props.onClick} className={props.variant} {...props} color={color}>{props.children}</StyledDiv>
     );
 };

@@ -4,11 +4,16 @@ import { ReviewCard } from "../components/ReviewCard"
 import { SectionHeading } from "../components/SectionHeader"
 import { ServiceCard } from "../components/ServiceCard"
 import { Content } from "../constants/content"
+import { Parameter } from "../constants/parameter"
+import { useNavigation } from "../hooks/useNavigation"
 import { Style } from "../styles/style"
 
 export const Reviews = () => {
+    const sectionRef = React.useRef(null)
+    useNavigation(sectionRef, Parameter.Navigation.Reviews.Path)
+
     return (
-        <React.Fragment>
+        <div ref={sectionRef}>
             <SectionHeading title={Content.Reviews.Title} subtitle={Content.Reviews.Subtitle} />
             <OverflowBox extended>
                 <Box paddingBottom={Style.Spacing.L}>
@@ -17,6 +22,6 @@ export const Reviews = () => {
                     </Grid>
                 </Box>
             </OverflowBox>
-        </React.Fragment>
+        </div>
     )
 }

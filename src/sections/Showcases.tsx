@@ -11,11 +11,15 @@ import React from "react"
 import { Collapsible } from "../components/Collapsible"
 import { getShowcasesByCategory, ShowcaseData } from "../data/showcases"
 import { Parameter } from "../constants/parameter"
+import { useNavigation } from "../hooks/useNavigation"
 
 const fakeTitle = "Pordeetorjai Personal Website";
 const fakeCaption = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium a mi et bibendum. Pellentesque ac. dolor sit amet, consectetur adipiscing elit. Phasellus pretium a mi et bibendum. Pellentesque ac.';
 
 export const Showcases = () => {
+    const sectionRef = React.useRef(null)
+    useNavigation(sectionRef, Parameter.Navigation.Showcases.Path)
+    
     const [selectedCategory, setSelectedCategory] = React.useState<Category>(Category.All);
     const showcases = React.useMemo(() => getShowcasesByCategory(selectedCategory), [selectedCategory]);
     const visibleShowcases = React.useMemo(() => showcases.slice(0, Parameter.ShowcasesInitialVisibleCount), [showcases]);
@@ -26,7 +30,7 @@ export const Showcases = () => {
     );
 
     return (
-        <React.Fragment>
+        <div ref={sectionRef}>
             <SectionHeading title={Content.Showcases.Title} subtitle={Content.Showcases.Subtitle}>
                 <CategorySelect />
             </SectionHeading>
@@ -38,6 +42,6 @@ export const Showcases = () => {
                     {hiddenShowcases.map(showcase => renderShowcaseCard(showcase))}
                 </Grid>
             </Collapsible>}
-        </React.Fragment>
+        </div>
     )
 }

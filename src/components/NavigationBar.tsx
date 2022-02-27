@@ -2,12 +2,14 @@ import React from "react";
 import { Box, Button, Container, Grid, Typography } from "../common"
 import { Content } from "../constants/content";
 import { getNavigationList } from "../constants/parameter"
+import { NavigationContext } from "../contexts/navigation";
 import { Style } from "../styles/style"
 
 const scrollThreshold = 300;
 
 export const NavigationBar = () => {
     const [scrolled, setScrolled] = React.useState<boolean>(false);
+    const { routePath, setRoute } = React.useContext(NavigationContext);
 
     const handleScroll = () => {
         if (window.pageYOffset > scrollThreshold) {
@@ -23,6 +25,19 @@ export const NavigationBar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     })
 
+    const getButtonStyle = (path: string) => {
+        const selectedStyle = {
+            backgroundColor: Style.Color.Dark100,
+            color: Style.Color.Light100,
+        }
+        const normalStyle = {
+            backgroundColor: 'none',
+            color: Style.Color.Light75,
+        }
+        if (routePath === path) return selectedStyle;
+        return normalStyle;
+    }
+
     return (
         <Box position="fixed" width="100%" left={0} top={0} background={Style.Color.Dark75} zIndex={99}>
             <Container>
@@ -37,9 +52,8 @@ export const NavigationBar = () => {
                                 <Button
                                     small
                                     noFilled
-                                    backgroundColor={index === 0 && Style.Color.Dark100 || 'none'}
-                                    color={index === 0 && Style.Color.Light100 || Style.Color.Light75}
-                                    onClick={() => {}}
+                                    {...getButtonStyle(path)}
+                                    onClick={() => setRoute && setRoute(path)}
                                 >
                                     {name}
                                 </Button>

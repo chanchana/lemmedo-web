@@ -7,12 +7,17 @@ import { SectionHeading } from "../components/SectionHeader"
 import { ServiceCard } from "../components/ServiceCard"
 import { SocialContactLink } from "../components/SocialContactLink"
 import { Content } from "../constants/content"
+import { Parameter } from "../constants/parameter"
 import { contacts, locationContact, socialContacts } from "../data/contact"
+import { useNavigation } from "../hooks/useNavigation"
 import { Style } from "../styles/style"
 
 export const Contact = () => {
+    const sectionRef = React.useRef(null)
+    useNavigation(sectionRef, Parameter.Navigation.Contact.Path)
+    
     return (
-        <React.Fragment>
+        <div ref={sectionRef}>
             <SectionHeading largeTitle title={Content.Contact.Title} title2={Content.Contact.Title2} subtitle={Content.Services.Subtitle} />
             <Grid columns={2} gap={Style.Spacing.L}>
                 <Card heightFitContent>
@@ -36,6 +41,6 @@ export const Contact = () => {
                     </Stack>
                 </Card>
             </Grid>
-        </React.Fragment>
+        </div>
     )
 }
