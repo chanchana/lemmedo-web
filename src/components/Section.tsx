@@ -8,7 +8,7 @@ interface Props {
 
 export const Section = (props: Props) => {
     return (
-        <Box overflow="hidden">
+        <Box>
             <Typography variant="heading3">{props.title}</Typography>
             <Box marginTop={Style.Spacing.S}>
                 {props.children}

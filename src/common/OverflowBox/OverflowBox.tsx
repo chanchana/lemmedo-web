@@ -19,7 +19,6 @@ const StyledDiv = styled.div<Props>`
 
 const StyledOverflowedDiv = styled.div<Props>`
     overflow: scroll;
-    width: 100%;
 `;
 
 const ExtendedLeftOverlay = styled.div`

@@ -1,5 +1,5 @@
 import React from "react"
-import { Box, Card, Grid, OverflowBox, Typography } from "../common"
+import { Box, Card, Grid, OverflowBox, Stack } from "../common"
 import { EducationCard } from "../components/EducationCard"
 import { Section } from "../components/Section"
 import { SectionHeading } from "../components/SectionHeader"
@@ -12,7 +12,7 @@ export const About = () => {
     return (
         <React.Fragment>
             <SectionHeading title={Content.About.Title} subtitle={Content.About.Subtitle} />
-            <Grid flowRow gap={Style.Spacing.XXL}>
+            <Stack vertical gap={Style.Spacing.XXL}>
                 <Section title={Content.About.WorkExperienceHeading}>
                     <Timeline visibleCount={3}>
                         {[1, 1, 1, 1, 1, 1, 1].map(() => <WorkExperienceCard />)}
@@ -26,7 +26,7 @@ export const About = () => {
                 <Section title={Content.About.ActivitiesHeading}>
                     <Card noPadding>
                         <OverflowBox>
-                            <Box padding={Style.Spacing.S}>
+                            <Box margin={Style.Spacing.S}>
                                 <Grid gap={Style.Spacing.S}>
                                     {[1, 1, 1, 1,1 ,1 ,1 , 1, 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1].map(() => <Box width="136px" height="136px" borderRadius="6px" background="white" />)}
                                 </Grid>
@@ -34,7 +34,7 @@ export const About = () => {
                         </OverflowBox>
                     </Card>
                 </Section>
-            </Grid>
+            </Stack>
         </React.Fragment>
     )
 }

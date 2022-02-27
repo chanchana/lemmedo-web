@@ -1,5 +1,5 @@
 import React from "react"
-import { Box, Button, Card, Grid, Link, TextArea, TextField, Tooltip, Typography } from "../common"
+import { Box, Button, Card, Grid, Link, Stack, TextArea, TextField, Tooltip, Typography } from "../common"
 import { ContactForm } from "../components/ContactForm"
 import { ContactLink } from "../components/ContactLink"
 import { Section } from "../components/Section"
@@ -19,25 +19,21 @@ export const Contact = () => {
                     <ContactForm />
                 </Card>
                 <Card heightFitContent>
-                    <Grid flowRow gap={Style.Spacing.XL}>
+                    <Stack vertical gap={Style.Spacing.XL}>
                         <Section title={Content.Contact.Contact}>
-                            <Grid flowRow gap={Style.Spacing.S}>
+                            <Stack vertical gap={Style.Spacing.S}>
                                 {contacts.map(contactData => <ContactLink contactData={contactData} />)}
-                            </Grid>
+                            </Stack>
                         </Section>
                         <Section title={Content.Contact.BasedIn}>
                             <Typography variant="body1">{locationContact}</Typography>
                         </Section>
-                        <Box>
-                        <Tooltip label="Test">
-                            <Typography block variant="heading2" color={Style.Color.Light50}>{Content.Name}</Typography>
-                        </Tooltip>
-                            <Section title={Content.Contact.Social} />
-                            <Grid inline gap={Style.Spacing.S}>
+                        <Section title={Content.Contact.Social}>
+                            <Stack horizontal gap={Style.Spacing.S}>
                                 {socialContacts.map(contactData => <SocialContactLink contactData={contactData} />)}
-                            </Grid>
-                        </Box>
-                    </Grid>
+                            </Stack>
+                        </Section>
+                    </Stack>
                 </Card>
             </Grid>
         </React.Fragment>
