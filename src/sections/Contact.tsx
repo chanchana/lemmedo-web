@@ -1,5 +1,5 @@
 import React from "react"
-import { Box, Button, Card, Grid, Link, TextArea, TextField, Typography } from "../common"
+import { Box, Button, Card, Grid, Link, TextArea, TextField, Tooltip, Typography } from "../common"
 import { ContactForm } from "../components/ContactForm"
 import { ContactLink } from "../components/ContactLink"
 import { Section } from "../components/Section"
@@ -29,6 +29,9 @@ export const Contact = () => {
                             <Typography variant="body1">{locationContact}</Typography>
                         </Section>
                         <Box>
+                        <Tooltip label="Test">
+                            <Typography block variant="heading2" color={Style.Color.Light50}>{Content.Name}</Typography>
+                        </Tooltip>
                             <Section title={Content.Contact.Social} />
                             <Grid inline gap={Style.Spacing.S}>
                                 {socialContacts.map(contactData => <SocialContactLink contactData={contactData} />)}

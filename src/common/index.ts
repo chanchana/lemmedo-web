@@ -10,3 +10,4 @@ export { BulletList } from './BulletList/BulletList';
 export { TextField } from './TextField/TextField';
 export { TextArea } from './TextArea/TextArea';
 export { Link } from './Link/Link';
+export { Tooltip } from './Tooltip/Tooltip';

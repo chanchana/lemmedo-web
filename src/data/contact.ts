@@ -4,12 +4,13 @@ import { Icon } from "../styles/icons";
 export interface ContactData {
     icon: React.ReactNode;
     iconColor?: string;
+    name: string;
     label: string;
     url: string;
-    tooltip?: string;
 }
 
 const fake = {
+    name: 'Email',
     icon: Icon.Book,
     label: 'northja@get.com',
     url: 'https://www.agoda.com',
@@ -18,6 +19,7 @@ const fake = {
 }
 
 const socialfake = {
+    name: 'Fakebook',
     icon: Icon.FacebookF,
     label: 'northja@get.com',
     url: 'https://www.agoda.com',

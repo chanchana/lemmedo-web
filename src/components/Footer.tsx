@@ -1,4 +1,4 @@
-import { Box, Container, Grid, Link, Typography } from "../common";
+import { Box, Container, Grid, Typography } from "../common";
 import { Content } from "../constants/content";
 import { getNavigationList } from "../constants/parameter";
 import { mainContact } from "../data/contact";
