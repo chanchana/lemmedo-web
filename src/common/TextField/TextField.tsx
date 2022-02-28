@@ -25,7 +25,7 @@ const StyledInput = styled.input`
     &:hover, &:focus {
         filter: brightness(120%);
         outline: none;
-        box-shadow: ${Style.Css.BoxShadow.M};
+        box-shadow: ${Style.Css.NormalOutlineBoxShadow},${Style.Css.BoxShadow.M};
     }
 
     &:focus {

@@ -29,7 +29,7 @@ const StyledTextArea = styled.textarea`
     &:hover, &:focus {
         filter: brightness(120%);
         outline: none;
-        box-shadow: ${Style.Css.BoxShadow.M};
+        box-shadow: ${Style.Css.NormalOutlineBoxShadow},${Style.Css.BoxShadow.M};
     }
 
     &:focus {
@@ -49,12 +49,6 @@ const StyledLabel = styled.div<{scrolled: boolean}>`
     left: ${Style.Spacing.M};
     transition: all ease 0.5s;
     opacity: ${props => props.scrolled ? 0 : 1};
-
-    &${StyledTextArea}:hover, &${StyledTextArea}:focus {
-        filter: brightness(120%);
-        outline: none;
-        box-shadow: ${Style.Css.BoxShadow.M};
-    }
 `;
 
 
