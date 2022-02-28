@@ -22,8 +22,7 @@ const SocialButton = styled.div<{background?: string}>`
     transition: all ease 0.5s;
 
     &:hover {
-        outline: 4px solid ${Style.Color.Dark25};
-        box-shadow: ${Style.Css.BoxShadow.M};
+        box-shadow: ${Style.Css.HoverOutlineBoxShadow},${Style.Css.BoxShadow.M};
     }
 `;
 

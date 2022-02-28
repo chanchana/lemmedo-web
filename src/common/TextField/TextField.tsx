@@ -29,8 +29,7 @@ const StyledInput = styled.input`
     }
 
     &:focus {
-        outline: 4px solid ${Style.Color.Light50};
-        /* outline: 4px solid ${Style.Color.Red}; */
+        box-shadow: ${Style.Css.HoverOutlineBoxShadow},${Style.Css.BoxShadow.M};
     }
 
     &::placeholder {

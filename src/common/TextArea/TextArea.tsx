@@ -33,7 +33,7 @@ const StyledTextArea = styled.textarea`
     }
 
     &:focus {
-        outline: 4px solid ${Style.Color.Light50};
+        box-shadow: ${Style.Css.HoverOutlineBoxShadow},${Style.Css.BoxShadow.M};
     }
 
     &::placeholder {
