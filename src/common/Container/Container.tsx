@@ -5,12 +5,13 @@ interface Props {
     children?: React.ReactNode;
 }
 
+const width = `calc(100% - (2 * ${Style.Spacing.XL}))`
 const maxWidth = Style.Css.MaxContainerWidth;
 
 export const Container = (props: Props) => {
     return (
         <Box display="flex" width="100%">
-            <Box maxWidth={maxWidth} margin="0 auto" width="100%" padding={`0 ${Style.Spacing.XL}`}>
+            <Box maxWidth={maxWidth} margin="0 auto" width={width}>
                 {props.children}
             </Box>
         </Box>
