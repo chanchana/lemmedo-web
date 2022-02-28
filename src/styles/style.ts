@@ -56,7 +56,8 @@ export const Style = {
         XXXL: '4rem',
     },
     Css: {
-        MaxContainerWidth: '1270px',
+        MaxContainerWidth: '1280px',
+        MaxImageHeight: '720px',
         BorderRadius: '8px',
         BoxShadow: {
             S: '0px 8px 16px rgba(0, 0, 0, 0.25)',

@@ -40,7 +40,7 @@ const Overlay = styled.div`
 
 const ModalCardImage = styled.img<{ opened: boolean }>`
     width: ${props => props.opened ? '100%' : thumbnailSize};
-    height: ${props => props.opened ? '640px' : thumbnailSize};
+    height: ${props => props.opened ? `min(56vw, ${Style.Css.MaxImageHeight})` : thumbnailSize};
     object-fit: cover;
     transition: all ease 0.5s;
     border-radius: 6px;
