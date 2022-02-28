@@ -13,6 +13,7 @@ interface Props {
     imageHeight?: string;
     heightFitContent?: boolean;
     style?: CSSProperties;
+    overflowScroll?: boolean;
     onClick?: () => void;
 }
 
@@ -25,7 +26,7 @@ const StyledDiv = styled.div<Props>`
     width: ${props => props.width};
     transition: ${transition};
     max-width: ${props => props.maxWidth};
-    overflow: scroll;
+    overflow: ${props => props.overflowScroll && 'scroll'};
     pointer-events: all;
     position: relative;
     height: ${props => props.heightFitContent && 'fit-content'};

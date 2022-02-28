@@ -119,7 +119,7 @@ export const ShowcaseCard = (props: Props) => {
             </div>
             {isOverlayVisible && <OverlayBackground isOpened={isOpened} onClick={handleToggleOpen} />}
             {isOverlayVisible && <OverlayCard ref={openCardRef}>
-                <Card imageUrl={props.showcaseData.imageUrl} withImagePadding={isOpened} imageHeight={isOpened ? '520px' : undefined} maxWidth={Style.Css.MaxContainerWidth}>
+                <Card overflowScroll imageUrl={props.showcaseData.imageUrl} withImagePadding={isOpened} imageHeight={isOpened ? '520px' : undefined} maxWidth={Style.Css.MaxContainerWidth}>
                     <Typography block variant={isOpened ? 'heading2' : 'heading3'}>{props.showcaseData.title}</Typography>
                     {renderCategories()}
                     {renderCaption()}
