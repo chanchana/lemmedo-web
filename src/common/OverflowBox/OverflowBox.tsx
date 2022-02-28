@@ -11,7 +11,7 @@ const extendedSpace = Style.Spacing.L;
 
 const StyledDiv = styled.div<Props>`
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
     ${props => props.extended && `
         margin: 0 -${extendedSpace};
     `}

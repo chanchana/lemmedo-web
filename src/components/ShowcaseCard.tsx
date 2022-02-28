@@ -7,6 +7,8 @@ import { Style } from "../styles/style"
 import { Collapse } from 'react-collapse'
 import { Section } from "./Section"
 import { ShowcaseData } from "../data/showcases"
+import { OverlayBackground } from "./OverlayBackground"
+import { ModalMinimizeButton } from "./ModalMinimizeButton"
 
 interface Props {
     showcaseData: ShowcaseData;
@@ -20,19 +22,6 @@ const OverlayCard = styled.div`
     justify-content: center;
     pointer-events: none;
     max-height: calc(100% - (2 * ${Style.Spacing.L}));
-`;
-
-const OverlayBackground = styled.div<{isOpened: boolean}>`
-    cursor: pointer;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transition: all 1s;
-    background: ${props => props.isOpened ? '#00000099' : '#00000000'};
-    pointer-events: ${props => props.isOpened ? 'all' : 'none'};
-    z-index: 999;
 `;
 
 export const ShowcaseCard = (props: Props) => {
@@ -53,6 +42,7 @@ export const ShowcaseCard = (props: Props) => {
             openCardElement.style.display = 'flex';
             openCardElement.style.transition = 'all 1s';
             openCardElement.style.zIndex = 0;
+            cardElement.style.opacity = '0';
             setTimeout(() => {
                 openCardElement.style.top = Style.Spacing.L;
                 openCardElement.style.left = '0px';
@@ -77,6 +67,7 @@ export const ShowcaseCard = (props: Props) => {
             openCardElement.style.display = 'flex';
             openCardElement.style.zIndex = 0;
             setTimeout(() => {
+                cardElement.style.opacity = '1';
                 document.body.style.overflow = 'unset';
                 openCardElement.style.display = 'none';
                 setIsOverlayVisible(false)
@@ -145,9 +136,7 @@ export const ShowcaseCard = (props: Props) => {
                             </Section>
                         </Grid>
                     </Collapse>
-                    <Box position="absolute" top={isOpened ? Style.Spacing.XXL : '-72px'} transition="all ease 1s" right={Style.Spacing.XXL} >
-                        <Button onClick={handleToggleOpen} icon={Icon.DownLeftAndUpRightToCenter} />
-                    </Box>
+                    <ModalMinimizeButton opened={isOpened} onClick={handleToggleOpen} />
                 </Card>
             </OverlayCard>}
         </React.Fragment>

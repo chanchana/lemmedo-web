@@ -1,12 +1,14 @@
 import React from "react"
 import { Box, Card, Grid, OverflowBox, Stack } from "../common"
 import { EducationCard } from "../components/EducationCard"
+import { ImagesCarousel } from "../components/ImagesCarousel"
 import { Section } from "../components/Section"
 import { SectionHeading } from "../components/SectionHeader"
 import { Timeline } from "../components/Timeline"
 import { WorkExperienceCard } from "../components/WorkExperienceCard"
 import { Content } from "../constants/content"
 import { Parameter } from "../constants/parameter"
+import { activityImages } from "../data/activities"
 import { useNavigation } from "../hooks/useNavigation"
 import { Style } from "../styles/style"
 
@@ -30,13 +32,7 @@ export const About = () => {
                 </Section>
                 <Section title={Content.About.ActivitiesHeading}>
                     <Card noPadding>
-                        <OverflowBox>
-                            <Box margin={Style.Spacing.S}>
-                                <Grid gap={Style.Spacing.S}>
-                                    {[1, 1, 1, 1,1 ,1 ,1 , 1, 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1].map(() => <Box width="136px" height="136px" borderRadius="6px" background="white" />)}
-                                </Grid>
-                            </Box>
-                        </OverflowBox>
+                        <ImagesCarousel images={activityImages} />
                     </Card>
                 </Section>
             </Stack>

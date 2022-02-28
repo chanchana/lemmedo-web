@@ -63,6 +63,7 @@ export const Style = {
             M: '0px 8px 32px rgba(0, 0, 0, 0.65)',
             L: '0px 8px 72px rgba(0, 0, 0, 0.90)',
         },
-        HoverOutlineBoxShadow: '0 0 0 4px #797979',
+        NormalOutlineBoxShadow: '0 0 0 0px #6d659c',
+        HoverOutlineBoxShadow: '0 0 0 4px #6d659c',
     },
 };

@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { CSSProperties } from "styled-components"
 import { Style } from "../../styles/style";
 
 interface Props {
@@ -12,6 +12,7 @@ interface Props {
     maxWidth?: string;
     imageHeight?: string;
     heightFitContent?: boolean;
+    style?: CSSProperties;
     onClick?: () => void;
 }
 
@@ -65,7 +66,7 @@ const StyledImg = styled.img<{ withImagePadding?: boolean }>`
 
 export const Card = (props: Props) => {
     return (
-        <StyledDiv {...props} onClick={props.onClick}>
+        <StyledDiv {...props} onClick={props.onClick} style={props.style}>
             {props.imageUrl && <StyledImageContainer {...props}>
                 <StyledImg src={props.imageUrl} withImagePadding={props.withImagePadding} />
             </StyledImageContainer>}
