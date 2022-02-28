@@ -35,7 +35,7 @@ const StyledDiv = styled.div<Props>`
     }
 
     &:active {
-        background: ${props => (!props.noFilled && !props.noShadow) && Style.Color.Dark100};
+        background: ${props => props.noFilled && Style.Color.Dark100};
         box-shadow: 'none';
         filter: brightness(80%);
         transition: all ease 0s;
