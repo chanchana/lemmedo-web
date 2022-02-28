@@ -27,36 +27,36 @@ const OverlayCard = styled.div`
 export const ShowcaseCard = (props: Props) => {
     const [isOpened, setIsOpened] = React.useState(false)
     const [isOverlayVisible, setIsOverlayVisible] = React.useState(false)
-    const cardRef = React.useRef(null)
-    const openCardRef = React.useRef(null)
+    const cardRef = React.useRef<HTMLDivElement>(null)
+    const openCardRef = React.useRef<HTMLDivElement>(null)
 
     const showOverlayCard = () => {
-        if (openCardRef && openCardRef.current && cardRef && cardRef.current) {
+        if (openCardRef?.current && cardRef?.current) {
             document.body.style.overflow = 'hidden';
-            const openCardElement = openCardRef.current as any;
-            const cardElement = cardRef.current as any;
+            const openCardElement = openCardRef.current;
+            const cardElement = cardRef.current;
             openCardElement.style.top = `${cardElement.getBoundingClientRect().top}px`;
             openCardElement.style.left = `${cardElement.getBoundingClientRect().left}px`;
             openCardElement.style.width = `${cardElement.offsetWidth}px`
             openCardElement.style.minHeight = `${cardElement.offsetHeight}px`
             openCardElement.style.display = 'flex';
             openCardElement.style.transition = 'all 1s';
-            openCardElement.style.zIndex = 0;
+            openCardElement.style.zIndex = '0';
             cardElement.style.opacity = '0';
             setTimeout(() => {
                 openCardElement.style.top = Style.Spacing.L;
                 openCardElement.style.left = '0px';
                 openCardElement.style.width = '100%';
-                openCardElement.style.zIndex = 9999;
+                openCardElement.style.zIndex = '9999';
                 setIsOpened(true)
             }, 20);
         }
     }
 
     const hideOverlayCard = () => {
-        if (openCardRef && openCardRef.current && cardRef && cardRef.current) {
-            const openCardElement = openCardRef.current as any;
-            const cardElement = cardRef.current as any;
+        if (openCardRef?.current && cardRef?.current) {
+            const openCardElement = openCardRef.current;
+            const cardElement = cardRef.current;
             console.log({
                 elTop: cardElement.getBoundingClientRect().top,
             })
@@ -65,7 +65,7 @@ export const ShowcaseCard = (props: Props) => {
             openCardElement.style.width = `${cardElement.offsetWidth}px`
             openCardElement.style.minHeight = `${cardElement.offsetHeight}px`
             openCardElement.style.display = 'flex';
-            openCardElement.style.zIndex = 0;
+            openCardElement.style.zIndex = '0';
             setTimeout(() => {
                 cardElement.style.opacity = '1';
                 document.body.style.overflow = 'unset';
