@@ -129,7 +129,7 @@ export const ShowcaseCard = (props: Props) => {
                     {renderCategories()}
                     {renderCaption()}
                     <Collapse isOpened={isOpened}>
-                        <Grid templateColumn="70% 1fr" marginTop={Style.Spacing.XL} gap={Style.Spacing.XL}>
+                        <Grid templateColumn="70% 1fr" marginTop={Style.Spacing.XXL} gap={Style.Spacing.XL}>
                             <Stack vertical gap={Style.Spacing.L}>
                                 {props.showcaseData.details && <Section title="Description">
                                     <Stack vertical gap={Style.Spacing.S}>
@@ -142,7 +142,9 @@ export const ShowcaseCard = (props: Props) => {
                                     <Tags tags={props.showcaseData.tools} />
                                 </Section>}
                                 {props.showcaseData.images && <Section title="Images">
-                                    <ImagesCarousel images={props.showcaseData.images} />
+                                    <Box>
+                                        <ImagesCarousel images={props.showcaseData.images} />
+                                    </Box>
                                 </Section>}
                             </Stack>
                             <Stack vertical gap={Style.Spacing.L}>

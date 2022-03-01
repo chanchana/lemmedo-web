@@ -51,6 +51,7 @@ const StyledImageContainer = styled.div<Props>`
     padding: 0;
     ${props => props.withImagePadding && `
         padding: ${Style.Spacing.L};
+        padding-bottom: 0;
     `}
 `;
 

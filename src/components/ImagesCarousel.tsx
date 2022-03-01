@@ -127,13 +127,11 @@ export const ImagesCarousel = (props: Props) => {
     return (
         <React.Fragment>
             <OverflowBox>
-                {/* <Box> */}
-                    <Grid gap={Style.Spacing.S}>
-                        {props.images.map((image, index) => (
-                            <ThumbnailImage ref={thumbnailRefs[index]} onClick={() => handleOpenModal(index)} src={image.imageUrl} />
-                        ))}
-                    </Grid>
-                {/* </Box> */}
+                <Grid gap={Style.Spacing.S}>
+                    {props.images.map((image, index) => (
+                        <ThumbnailImage ref={thumbnailRefs[index]} onClick={() => handleOpenModal(index)} src={image.imageUrl} />
+                    ))}
+                </Grid>
             </OverflowBox>
             <OverlayBackground isOpened={isModalOpened} onClick={handleCloseModal} />
             <Overlay ref={modalRef}>

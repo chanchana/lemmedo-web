@@ -12,16 +12,12 @@ const extendedSpace = Style.Spacing.L;
 
 const StyledDiv = styled.div<Props>`
     position: relative;
-    margin: -${marginSpace};
-    
-    ${props => props.extended && `
-        margin: 0 -${extendedSpace};
-    `}
+    margin: ${props => props.extended ? `-${extendedSpace}` : `-${marginSpace}`};
 `;
 
 const StyledOverflowedDiv = styled.div<Props>`
     overflow: scroll;
-    padding: ${props => props.extended ? 0 : marginSpace};
+    padding: ${props => props.extended ? extendedSpace : marginSpace};
 `;
 
 const ExtendedLeftOverlay = styled.div<{extended?: boolean}>`
@@ -45,16 +41,13 @@ const ExtendedRightOverlay = styled.div<{extended?: boolean}>`
 `;
 
 export const OverflowBox = (props: Props) => {
-    const extendedPadding = <Box minWidth={extendedSpace} />
+    const extendedPadding = <Box minWidth={props.extended ? extendedSpace : marginSpace} />
     return (
         <StyledDiv {...props}>
-            <StyledOverflowedDiv>
+            <StyledOverflowedDiv {...props}>
                 <Box displayFlex>
-                    {props.extended && extendedPadding}
-                    <Box>
-                        {props.children}
-                    </Box>
-                    {props.extended && extendedPadding}
+                    {props.children}
+                    {extendedPadding}
                 </Box>
             </StyledOverflowedDiv>
             <ExtendedLeftOverlay extended={props.extended} />
