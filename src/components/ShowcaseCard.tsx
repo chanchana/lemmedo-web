@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { Box, Button, Card, Grid, Typography } from "../common"
+import { Box, Button, Card, Grid, Stack, Typography } from "../common"
 import { allCategory, Category } from "../data/categories"
 import { Icon } from "../styles/icons"
 import { Style } from "../styles/style"
@@ -9,6 +9,8 @@ import { Section } from "./Section"
 import { ShowcaseData } from "../data/showcases"
 import { OverlayBackground } from "./OverlayBackground"
 import { ModalMinimizeButton } from "./ModalMinimizeButton"
+import { activityImages } from "../data/activities"
+import { ImagesCarousel } from "./ImagesCarousel"
 
 interface Props {
     showcaseData: ShowcaseData;
@@ -124,16 +126,29 @@ export const ShowcaseCard = (props: Props) => {
                     {renderCategories()}
                     {renderCaption()}
                     <Collapse isOpened={isOpened}>
-                        <Grid flowRow marginTop={Style.Spacing.XL} gap={Style.Spacing.L}>
-                            <Section title="About">
-                                <Typography>Hi</Typography>
-                            </Section>
-                            <Section title="Tech Stack">
-                                <Typography>Hi</Typography>
-                            </Section>
-                            <Section title="Images">
-                                <Typography>Hi</Typography>
-                            </Section>
+                        <Grid templateColumn="70% 1fr" marginTop={Style.Spacing.XL} gap={Style.Spacing.XL}>
+                            <Stack vertical gap={Style.Spacing.L}>
+                                <Section title="About">
+                                    <Typography>Hi</Typography>
+                                </Section>
+                                <Section title="Tech Stack">
+                                    <Typography>Hi</Typography>
+                                </Section>
+                                <Section title="Images">
+                                    <ImagesCarousel images={activityImages} />
+                                </Section>
+                            </Stack>
+                            <Stack vertical gap={Style.Spacing.L}>
+                                <Section title="Contributors">
+                                    <Typography>Hi</Typography>
+                                </Section>
+                                <Section title="Date">
+                                    <Typography>Hi</Typography>
+                                </Section>
+                                <Section title="External Links">
+                                    <Typography>Hi</Typography>
+                                </Section>
+                            </Stack>
                         </Grid>
                     </Collapse>
                     <ModalMinimizeButton opened={isOpened} onClick={handleToggleOpen} />

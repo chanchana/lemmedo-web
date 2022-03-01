@@ -32,7 +32,9 @@ export const About = () => {
                 </Section>
                 <Section title={Content.About.ActivitiesHeading}>
                     <Card noPadding>
-                        <ImagesCarousel images={activityImages} />
+                        <Box paddingLeft={Style.Spacing.S} paddingRight={Style.Spacing.S}>
+                            <ImagesCarousel images={activityImages} />
+                        </Box>
                     </Card>
                 </Section>
             </Stack>

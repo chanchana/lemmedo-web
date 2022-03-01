@@ -45,6 +45,8 @@ export const Style = {
         FadeBlackBottom: 'linear-gradient(180deg, rgba(0, 0, 0, 0) 56.42%, rgba(0, 0, 0, 0.3) 100%)',
         FadeDarkRight: 'linear-gradient(270deg, #1A1923 0%, rgba(26, 25, 35, 0) 100%)',
         FadeDarkLeft: 'linear-gradient(90deg, #1A1923 0%, rgba(26, 25, 35, 0) 100%)',
+        FadeDark50Right: 'linear-gradient(270deg, #28243E 0%, #28243E00 100%)',
+        FadeDark50Left: 'linear-gradient(90deg, #28243E 0%, #28243E00 100%)',
     },
     Spacing: {
         XS: '0.5rem', // 8px

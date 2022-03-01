@@ -7,11 +7,13 @@ interface Props {
     extended?: boolean;
 }
 
+const marginSpace = Style.Spacing.S;
 const extendedSpace = Style.Spacing.L;
 
 const StyledDiv = styled.div<Props>`
     position: relative;
-    /* overflow: hidden; */
+    margin: -${marginSpace};
+    
     ${props => props.extended && `
         margin: 0 -${extendedSpace};
     `}
@@ -19,24 +21,27 @@ const StyledDiv = styled.div<Props>`
 
 const StyledOverflowedDiv = styled.div<Props>`
     overflow: scroll;
+    padding: ${props => props.extended ? 0 : marginSpace};
 `;
 
-const ExtendedLeftOverlay = styled.div`
+const ExtendedLeftOverlay = styled.div<{extended?: boolean}>`
+    border-radius: ${Style.Css.BorderRadius} 0 0 ${Style.Css.BorderRadius};
     position: absolute;
     left: 0;
     top: 0;
     height: 100%;
-    background: ${Style.Gradient.FadeDarkLeft};
-    width: ${extendedSpace};
+    background: ${props => props.extended ? Style.Gradient.FadeDarkLeft : Style.Gradient.FadeDark50Left};
+    width: ${props => props.extended ? extendedSpace : marginSpace};
 `;
 
-const ExtendedRightOverlay = styled.div`
+const ExtendedRightOverlay = styled.div<{extended?: boolean}>`
+    border-radius: 0 ${Style.Css.BorderRadius} ${Style.Css.BorderRadius} 0;
     position: absolute;
     right: 0;
     top: 0;
     height: 100%;
-    background: ${Style.Gradient.FadeDarkRight};
-    width: ${extendedSpace};
+    background: ${props => props.extended ? Style.Gradient.FadeDarkRight : Style.Gradient.FadeDark50Right};
+    width: ${props => props.extended ? extendedSpace : marginSpace};
 `;
 
 export const OverflowBox = (props: Props) => {
@@ -52,8 +57,8 @@ export const OverflowBox = (props: Props) => {
                     {props.extended && extendedPadding}
                 </Box>
             </StyledOverflowedDiv>
-            {props.extended && <ExtendedLeftOverlay />}
-            {props.extended && <ExtendedRightOverlay />}
+            <ExtendedLeftOverlay extended={props.extended} />
+            <ExtendedRightOverlay extended={props.extended} />
         </StyledDiv>
     )
 }
