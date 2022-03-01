@@ -5,8 +5,8 @@ interface Props {
 }
 
 const StyledImg = styled.img`
-    width: 36px;
-    height: 36px;
+    width: 2.75rem;
+    height: 2.75rem;
     border-radius: 50%;
 `;
 

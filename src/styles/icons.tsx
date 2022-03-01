@@ -18,6 +18,7 @@ export const Icon = {
     CircleChevronUp: <FontAwesomeIcon icon={solid('circle-chevron-up')} />,
     XMark: <FontAwesomeIcon icon={solid('xmark')} />,
     DownLeftAndUpRightToCenter: <FontAwesomeIcon icon={solid('down-left-and-up-right-to-center')} />,
+    UpRightFromSquare: <FontAwesomeIcon icon={solid('up-right-from-square')} />,
 
     // Brands
     FacebookF: <FontAwesomeIcon icon={brands('facebook-f')} />,

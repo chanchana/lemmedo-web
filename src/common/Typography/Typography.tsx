@@ -3,10 +3,12 @@ import { Style } from '../../styles/style';
 import Styled from 'styled-components';
 import { getTextGradient, textAnimatedGradient } from '../../styles/utils';
 
+export type TypographyVariant = 'heading1' | 'heading2' | 'heading3' | 'heading4' |
+'caption' | 'body1' | 'body2' | 'body3' |
+'label' | 'button1' | 'button2';
+
 interface Props {
-    variant?: 'heading1' | 'heading2' | 'heading3' | 'heading4' |
-        'caption' | 'body1' | 'body2' | 'body3' |
-        'label' | 'button1' | 'button2';
+    variant?: TypographyVariant;
     color?: string;
     gradient?: string;
     animatedGradient?: boolean;

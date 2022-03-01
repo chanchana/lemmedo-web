@@ -14,6 +14,11 @@ const fake2: Image = {
     year: '2026',
 }
 
+export const fakeImage: Image = {
+    imageUrl: Sample,
+    label: 'Sample label naja',
+}
+
 export const activityImages: Image[] = [
     fake, fake2, fake, fake,fake, fake2, fake, fake,fake, fake, fake,fake, fake, fake,fake, fake, fake,fake, fake, fake,fake, fake, fake,fake, fake, fake,fake, fake, fake,
 ]

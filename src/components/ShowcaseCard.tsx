@@ -11,6 +11,9 @@ import { OverlayBackground } from "./OverlayBackground"
 import { ModalMinimizeButton } from "./ModalMinimizeButton"
 import { activityImages } from "../data/activities"
 import { ImagesCarousel } from "./ImagesCarousel"
+import { PeopleDisplay } from "./PeopleDisplay"
+import { Tags } from "./Tags"
+import { ExternalLink } from "./ExternalLink"
 
 interface Props {
     showcaseData: ShowcaseData;
@@ -128,26 +131,38 @@ export const ShowcaseCard = (props: Props) => {
                     <Collapse isOpened={isOpened}>
                         <Grid templateColumn="70% 1fr" marginTop={Style.Spacing.XL} gap={Style.Spacing.XL}>
                             <Stack vertical gap={Style.Spacing.L}>
-                                <Section title="About">
-                                    <Typography>Hi</Typography>
-                                </Section>
-                                <Section title="Tech Stack">
-                                    <Typography>Hi</Typography>
-                                </Section>
-                                <Section title="Images">
-                                    <ImagesCarousel images={activityImages} />
-                                </Section>
+                                {props.showcaseData.details && <Section title="Description">
+                                    <Stack vertical gap={Style.Spacing.S}>
+                                        {props.showcaseData.details.map((detail) => (
+                                            <Typography variant="body2">{detail}</Typography>
+                                        ))}
+                                    </Stack>
+                                </Section>}
+                                {props.showcaseData.tools && <Section title="Tools">
+                                    <Tags tags={props.showcaseData.tools} />
+                                </Section>}
+                                {props.showcaseData.images && <Section title="Images">
+                                    <ImagesCarousel images={props.showcaseData.images} />
+                                </Section>}
                             </Stack>
                             <Stack vertical gap={Style.Spacing.L}>
-                                <Section title="Contributors">
-                                    <Typography>Hi</Typography>
-                                </Section>
+                                {props.showcaseData.contributors && <Section title="Contributors">
+                                    <Stack vertical gap={Style.Spacing.S}>
+                                        {props.showcaseData.contributors.map((contributor) => (
+                                            <PeopleDisplay titleVariant="body1" people={contributor.people} label={contributor.responsibility} />
+                                        ))}
+                                    </Stack>
+                                </Section>}
                                 <Section title="Date">
-                                    <Typography>Hi</Typography>
+                                    <Typography>{props.showcaseData.date}</Typography>
                                 </Section>
-                                <Section title="External Links">
-                                    <Typography>Hi</Typography>
-                                </Section>
+                                {props.showcaseData.externalLinks && <Section title="External Links">
+                                    <Stack vertical gap={Style.Spacing.S}>
+                                        {props.showcaseData.externalLinks.map((externalLink) => (
+                                            <ExternalLink text={externalLink.label || externalLink.url} url={externalLink.url} />
+                                        ))}
+                                    </Stack>
+                                </Section>}
                             </Stack>
                         </Grid>
                     </Collapse>
