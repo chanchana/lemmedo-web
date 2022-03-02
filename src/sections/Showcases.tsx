@@ -12,6 +12,7 @@ import { Collapsible } from "../components/Collapsible"
 import { getShowcasesByCategory, ShowcaseData } from "../data/showcases"
 import { Parameter } from "../constants/parameter"
 import { useNavigation } from "../hooks/useNavigation"
+import { ResponsiveContext } from "../contexts/responsive"
 
 const fakeTitle = "Pordeetorjai Personal Website";
 const fakeCaption = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium a mi et bibendum. Pellentesque ac. dolor sit amet, consectetur adipiscing elit. Phasellus pretium a mi et bibendum. Pellentesque ac.';
@@ -19,6 +20,7 @@ const fakeCaption = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ph
 export const Showcases = () => {
     const sectionRef = React.useRef(null)
     useNavigation(sectionRef, Parameter.Navigation.Showcases.Path)
+    const { isMobile } = React.useContext(ResponsiveContext)
     
     const [selectedCategory, setSelectedCategory] = React.useState<Category>(Category.All);
     const showcases = React.useMemo(() => getShowcasesByCategory(selectedCategory), [selectedCategory]);
@@ -38,11 +40,11 @@ export const Showcases = () => {
             <SectionHeading title={Content.Showcases.Title} subtitle={Content.Showcases.Subtitle}>
                 <CategorySelect onChange={handleChangeCategory} />
             </SectionHeading>
-            <Grid columns={2} gap={Style.Spacing.L}>
+            <Grid columns={isMobile ? 1 : 2} gap={Style.Spacing.L}>
                 {visibleShowcases.map(showcase => renderShowcaseCard(showcase))}
             </Grid>
             {hiddenShowcases.length > 0 && <Collapsible>
-                <Grid columns={2} gap={Style.Spacing.L} marginTop={Style.Spacing.L}>
+                <Grid columns={isMobile ? 1 : 2} gap={Style.Spacing.L} marginTop={Style.Spacing.L}>
                     {hiddenShowcases.map(showcase => renderShowcaseCard(showcase))}
                 </Grid>
             </Collapsible>}

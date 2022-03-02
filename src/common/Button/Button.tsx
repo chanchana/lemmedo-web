@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { CSSProperties } from "styled-components";
 import { Box, Typography } from "..";
 import { Style } from "../../styles/style";
 
@@ -12,6 +12,7 @@ interface Props {
     color?: string;
     icon?: React.ReactNode;
     noShadow?: boolean;
+    style?: CSSProperties;
     onClick?: () => void;
 }
 

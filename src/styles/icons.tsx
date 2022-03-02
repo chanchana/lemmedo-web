@@ -19,6 +19,7 @@ export const Icon = {
     XMark: <FontAwesomeIcon icon={solid('xmark')} />,
     DownLeftAndUpRightToCenter: <FontAwesomeIcon icon={solid('down-left-and-up-right-to-center')} />,
     UpRightFromSquare: <FontAwesomeIcon icon={solid('up-right-from-square')} />,
+    Bars: <FontAwesomeIcon icon={solid('bars')} />,
 
     // Brands
     FacebookF: <FontAwesomeIcon icon={brands('facebook-f')} />,

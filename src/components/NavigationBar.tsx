@@ -3,6 +3,8 @@ import { Box, Button, Container, Grid, Typography } from "../common"
 import { Content } from "../constants/content";
 import { getNavigationList } from "../constants/parameter"
 import { NavigationContext } from "../contexts/navigation";
+import { ResponsiveContext } from "../contexts/responsive";
+import { Icon } from "../styles/icons";
 import { Style } from "../styles/style"
 
 const scrollThreshold = 300;
@@ -10,6 +12,7 @@ const scrollThreshold = 300;
 export const NavigationBar = () => {
     const [scrolled, setScrolled] = React.useState<boolean>(false);
     const { routePath, setRoute } = React.useContext(NavigationContext);
+    const { isDesktop, isMobileOrTablet } = React.useContext(ResponsiveContext);
 
     const handleScroll = () => {
         if (window.pageYOffset > scrollThreshold) {
@@ -38,29 +41,46 @@ export const NavigationBar = () => {
         return normalStyle;
     }
 
+    const renderDesktopMenu = () => {
+        return (isDesktop &&
+            <Grid inline gap={Style.Spacing.M}>
+                {getNavigationList().map(({ name, path }, index) =>
+                    <Button
+                        small
+                        noFilled
+                        {...getButtonStyle(path)}
+                        onClick={() => setRoute && setRoute(path)}
+                    >
+                        {name}
+                    </Button>
+                )}
+            </Grid>
+        )
+    }
+
+    const renderMobileMenu = () => {
+        return (isMobileOrTablet &&
+            <Box maxWidth={scrolled ? '500px' : '0'} transform={scrolled ? 'scale(1)' : 'scale(0)'} overflow="hidden" transition="1s ease">
+                <Button large noFilled icon={Icon.Bars} style={{padding: '1.5rem 0 1.5rem 3rem'}} />
+            </Box>
+        )
+    }
+
+    const barMargin = isDesktop ? '28px 0' : '12px 0';
+
     return (
-        <Box position="fixed" width="100%" left={0} top={0} background={Style.Color.Dark75} zIndex={99}>
+        <Box position="fixed" width="100%" left={0} top={0} background={(isMobileOrTablet && !scrolled) ? 'transparent' : Style.Color.Dark75} transition="0.5s ease" zIndex={99}>
             <Container>
-                <Box margin="28px 0" display="flex">
-                    <Box maxWidth={scrolled ? '500px' : '0'} transform={scrolled ? 'scale(1)' : 'scale(0)'} overflow="hidden" transition="1s ease">
+                <Box margin={barMargin} display="flex" alignItems="center">
+                    <Box maxWidth={scrolled ? '500px' : '0'} transform={scrolled ? 'scale(1)' : 'scale(0)'} overflow="hidden" transition="0.5s ease">
                         <Typography variant="heading2" animatedGradient noWrap>{Content.Name}</Typography>
                     </Box>
-                    <Box flexShrink={1} flexGrow={1} transition="1s"/>
+                    <Box flexShrink={1} flexGrow={1} transition="0.5s"/>
                     <Box flexShrink={0}>
-                        <Grid inline gap={Style.Spacing.M}>
-                            {getNavigationList().map(({ name, path }, index) =>
-                                <Button
-                                    small
-                                    noFilled
-                                    {...getButtonStyle(path)}
-                                    onClick={() => setRoute && setRoute(path)}
-                                >
-                                    {name}
-                                </Button>
-                            )}
-                        </Grid>
+                        {renderDesktopMenu()}
                     </Box>
-                    <Box flexShrink={1} flexGrow={scrolled ? 0 : 1} transition="1s ease"/>
+                    <Box flexShrink={1} flexGrow={scrolled ? 0 : 1} transition="0.5s ease"/>
+                    {renderMobileMenu()}
                 </Box>
             </Container>
         </Box>

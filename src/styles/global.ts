@@ -44,43 +44,43 @@ export const GlobalStyle = createGlobalStyle`
         html {
             font-size: ${Style.Typography.Desktop.RootFontSize};
         }
-        .heading1 {
-            ${Style.Typography.Desktop.Heading1}
-        }
-        .heading2 {
-            ${Style.Typography.Desktop.Heading2}
-        }
-        .heading3 {
-            ${Style.Typography.Desktop.Heading3}
-        }
-        .heading4 {
-            ${Style.Typography.Desktop.Heading4}
-        }
-        .caption {
-            ${Style.Typography.Desktop.Caption}
-        }
-        .body1 {
-            ${Style.Typography.Desktop.Body1}
-        }
-        .body2 {
-            ${Style.Typography.Desktop.Body2}
-        }
-        .body3 {
-            ${Style.Typography.Desktop.Body3}
-        }
-        .label {
-            ${Style.Typography.Desktop.Label}
-        }
-        .button1 {
-            ${Style.Typography.Desktop.Button1}
-        }
-        .button2 {
-            ${Style.Typography.Desktop.Button2}
-        }
     }
     ${MediaQuery.Mobile} {
         html {
             font-size: ${Style.Typography.Mobile.RootFontSize};
         }
+    }
+    .heading1 {
+        ${Style.Typography.Desktop.Heading1}
+    }
+    .heading2 {
+        ${Style.Typography.Desktop.Heading2}
+    }
+    .heading3 {
+        ${Style.Typography.Desktop.Heading3}
+    }
+    .heading4 {
+        ${Style.Typography.Desktop.Heading4}
+    }
+    .caption {
+        ${Style.Typography.Desktop.Caption}
+    }
+    .body1 {
+        ${Style.Typography.Desktop.Body1}
+    }
+    .body2 {
+        ${Style.Typography.Desktop.Body2}
+    }
+    .body3 {
+        ${Style.Typography.Desktop.Body3}
+    }
+    .label {
+        ${Style.Typography.Desktop.Label}
+    }
+    .button1 {
+        ${Style.Typography.Desktop.Button1}
+    }
+    .button2 {
+        ${Style.Typography.Desktop.Button2}
     }
 `;
