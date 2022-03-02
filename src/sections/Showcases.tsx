@@ -24,6 +24,10 @@ export const Showcases = () => {
     const showcases = React.useMemo(() => getShowcasesByCategory(selectedCategory), [selectedCategory]);
     const visibleShowcases = React.useMemo(() => showcases.slice(0, Parameter.ShowcasesInitialVisibleCount), [showcases]);
     const hiddenShowcases = React.useMemo(() => showcases.slice(Parameter.ShowcasesInitialVisibleCount), [showcases]);
+
+    const handleChangeCategory = (category: Category) => {
+        setSelectedCategory(category)
+    }
     
     const renderShowcaseCard = (showcase: ShowcaseData) => (
         <ShowcaseCard showcaseData={showcase} />
@@ -32,7 +36,7 @@ export const Showcases = () => {
     return (
         <div ref={sectionRef}>
             <SectionHeading title={Content.Showcases.Title} subtitle={Content.Showcases.Subtitle}>
-                <CategorySelect />
+                <CategorySelect onChange={handleChangeCategory} />
             </SectionHeading>
             <Grid columns={2} gap={Style.Spacing.L}>
                 {visibleShowcases.map(showcase => renderShowcaseCard(showcase))}

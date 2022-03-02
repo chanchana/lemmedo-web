@@ -59,7 +59,65 @@ const fake: ShowcaseData = {
     ]
 }
 
-export const showcases: ShowcaseData[] = [fake, fake, fake, fake, fake, fake, fake, fake, fake, fake, fake];
+const fakeApp: ShowcaseData = {
+    title: "Pordeetorjai Personal Application",
+    caption: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium a mi et bibendum. Pellentesque ac. dolor sit amet, consectetur adipiscing elit. Phasellus pretium a mi et bibendum. Pellentesque ac.',
+    imageUrl: SampleImage,
+    categories: [Category.App],
+
+    details: [longString, longString],
+    tools: ['TypeScript', 'React', 'Python'],
+    images: [fakeImage, fakeImage, fakeImage, fakeImage],
+    contributors: [
+        {
+            people: people.chanchana,
+            responsibility: 'Be me',
+        },
+        {
+            people: people.sample,
+            responsibility: 'UX/UI Designer',
+        },
+        {
+            people: people.chanchana,
+            responsibility: 'Sleeper',
+        },
+    ],
+    date: '2021',
+    externalLinks: [
+        { label: 'pordeetorjai.com', url: 'https://www.pordeetorjai.com' }
+    ]
+}
+
+const fakeEtc: ShowcaseData = {
+    title: "Pordeetorjai Personal Script",
+    caption: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium a mi et bibendum. Pellentesque ac. dolor sit amet, consectetur adipiscing elit. Phasellus pretium a mi et bibendum. Pellentesque ac.',
+    imageUrl: SampleImage,
+    categories: [Category.Automation],
+
+    details: [longString, longString],
+    tools: ['TypeScript', 'React', 'Python'],
+    images: [fakeImage, fakeImage, fakeImage, fakeImage],
+    contributors: [
+        {
+            people: people.chanchana,
+            responsibility: 'Be me',
+        },
+        {
+            people: people.sample,
+            responsibility: 'UX/UI Designer',
+        },
+        {
+            people: people.chanchana,
+            responsibility: 'Sleeper',
+        },
+    ],
+    date: '2021',
+    externalLinks: [
+        { label: 'pordeetorjai.com', url: 'https://www.pordeetorjai.com' }
+    ]
+}
+
+export const showcases: ShowcaseData[] = [fake, fakeApp, fakeEtc, fake, fake, fake, fake, fake, fake, fakeApp, fake, fake, fake, fake];
 
 export const getShowcasesByCategory = (category: Category) => {
     if (category === Category.All) {

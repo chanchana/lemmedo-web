@@ -23,7 +23,7 @@ const StyledDiv = styled.div<Props>`
     border-radius: ${Style.Css.BorderRadius};
     background: ${props => props.backgroundColor || (!props.noFilled && Style.Color.Dark25)};
     box-shadow: ${props => (!props.noFilled && !props.noShadow) && Style.Css.BoxShadow.M};
-    text-shadow: ${props => !props.noFilled && props.backgroundColor && '0px 0px 24px rgb(0 0 0 / 70%)'};
+    text-shadow: ${props => !props.noFilled && props.backgroundColor && '0px 0px 24px rgb(0 0 0 / 50%)'};
     filter: brightness(100%);
     transition: all ease 0.5s;
     pointer-events: all;

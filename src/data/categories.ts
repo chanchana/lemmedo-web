@@ -1,12 +1,13 @@
 import { Icon } from '../styles/icons';
 import { Style } from '../styles/style'
 
-interface CategoryData {
+export interface CategoryData {
     label: string,
     name: string,
     visible?: boolean,
     icon?: React.ReactNode;
     color?: string;
+    category: Category;
 }
 
 export enum Category {
@@ -26,6 +27,7 @@ export const allCategory: { [key: number]: CategoryData } = {
         label: 'all',
         name: 'All',
         visible: true,
+        category: Category.All,
     },
     [Category.Web]: {
         label: 'web',
@@ -33,6 +35,7 @@ export const allCategory: { [key: number]: CategoryData } = {
         visible: true,
         icon: Icon.WindowRestore,
         color: Style.Color.Cyan,
+        category: Category.Web,
     },
     [Category.App]: {
         label: 'app',
@@ -40,6 +43,7 @@ export const allCategory: { [key: number]: CategoryData } = {
         visible: true,
         icon: Icon.MobileScreenButton,
         color: Style.Color.Orange,
+        category: Category.App,
     },
     [Category.Ai]: {
         label: 'ai',
@@ -47,12 +51,14 @@ export const allCategory: { [key: number]: CategoryData } = {
         visible: true,
         icon: Icon.ChartLine,
         color: Style.Color.Red,
+        category: Category.Ai,
     },
     [Category.Etc]: {
         label: 'etc',
         name: 'Etc',
         visible: true,
         icon: Icon.Asterisk,
+        category: Category.Etc,
     },
 
     // Invisible Category
@@ -61,18 +67,21 @@ export const allCategory: { [key: number]: CategoryData } = {
         name: 'Design',
         icon: Icon.PenRuler,
         color: Style.Color.Purple,
+        category: Category.Design,
     },
     [Category.Automation]: {
         label: 'automation',
         name: 'Automation',
         icon: Icon.Gears,
         color: Style.Color.Green,
+        category: Category.Automation,
     },
     [Category.Research]: {
         label: 'research',
         name: 'Research',
         icon: Icon.Book,
         color: Style.Color.Yellow,
+        category: Category.Research,
     },
 }
 
