@@ -30,8 +30,8 @@ export const Parameter = {
     },
 
     Breakpoint: {
-        MaxMobile: 449,
-        MaxTablet: 999,
+        MaxMobile: 864,
+        MaxTablet: 1000,
     },
 };
 
