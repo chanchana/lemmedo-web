@@ -13,13 +13,14 @@ interface Props {
     icon?: React.ReactNode;
     noShadow?: boolean;
     style?: CSSProperties;
+    block?: boolean;
     onClick?: () => void;
 }
 
 const StyledDiv = styled.div<Props>`
     position: relative;
     cursor: pointer;
-    display: inline-block;
+    display: ${props => props.block ? 'block' : 'inline-block'};
     padding: ${props => props.variant === 'large' ? '16px 28px' : props.variant === 'normal' ? '12px 24px' : '4px 12px'};
     border-radius: ${Style.Css.BorderRadius};
     background: ${props => props.backgroundColor || (!props.noFilled && Style.Color.Dark25)};

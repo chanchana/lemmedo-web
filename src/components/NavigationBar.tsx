@@ -1,11 +1,14 @@
 import React from "react";
-import { Box, Button, Container, Grid, Typography } from "../common"
+import { Box, Button, Container, Grid, Stack, Typography } from "../common"
 import { Content } from "../constants/content";
 import { getNavigationList } from "../constants/parameter"
 import { NavigationContext } from "../contexts/navigation";
 import { ResponsiveContext } from "../contexts/responsive";
 import { Icon } from "../styles/icons";
 import { Style } from "../styles/style"
+import { Squash as Hamburger } from 'hamburger-react'
+import { Collapse } from 'react-collapse'
+import { OverlayBackground } from "./OverlayBackground";
 
 const scrollThreshold = 300;
 
@@ -13,6 +16,7 @@ export const NavigationBar = () => {
     const [scrolled, setScrolled] = React.useState<boolean>(false);
     const { routePath, setRoute } = React.useContext(NavigationContext);
     const { isDesktop, isMobileOrTablet } = React.useContext(ResponsiveContext);
+    const [isMobileOverlayVisible, setIsMobileOverlayVisible] = React.useState<boolean>(false);
 
     const handleScroll = () => {
         if (window.pageYOffset > scrollThreshold) {
@@ -41,6 +45,10 @@ export const NavigationBar = () => {
         return normalStyle;
     }
 
+    const handleToggleMobileOverlay = () => {
+        setIsMobileOverlayVisible(!isMobileOverlayVisible)
+    }
+
     const renderDesktopMenu = () => {
         return (isDesktop &&
             <Grid inline gap={Style.Spacing.M}>
@@ -60,29 +68,60 @@ export const NavigationBar = () => {
 
     const renderMobileMenu = () => {
         return (isMobileOrTablet &&
-            <Box maxWidth={scrolled ? '500px' : '0'} transform={scrolled ? 'scale(1)' : 'scale(0)'} overflow="hidden" transition="1s ease">
-                <Button large noFilled icon={Icon.Bars} style={{padding: '1.5rem 0 1.5rem 3rem'}} />
+            <Box marginRight={-15} maxWidth={scrolled ? '500px' : '0'} transform={scrolled ? 'scale(1)' : 'scale(0)'} overflow="hidden" transition="1s ease">
+                <Hamburger toggled={isMobileOverlayVisible} toggle={handleToggleMobileOverlay} color={Style.Color.Light100} rounded size={18} />
             </Box>
         )
     }
 
+    const handleMobileSetRoute = (path: string) => {
+        if(setRoute) {
+            setIsMobileOverlayVisible(false)
+            setRoute(path)
+        }
+    }
+
+    const renderMobileOverlay = () => {
+        return (
+            isMobileOrTablet && (
+                <Collapse isOpened={isMobileOverlayVisible}>
+                    <Container>
+                        <Box marginBottom={Style.Spacing.XXXL} marginTop={Style.Spacing.L} textAlign="right">
+                            <Stack vertical gap={Style.Spacing.XL}>
+                                {getNavigationList().map(({ name, path }, index) =>
+                                    <Typography block interactive variant="button1" onClick={() => handleMobileSetRoute(path)}>{name}</Typography>
+                                )}
+                            </Stack>
+                        </Box>
+                    </Container>
+                </Collapse>
+            )
+        )
+    }
+
     const barMargin = isDesktop ? '28px 0' : '12px 0';
+    const visibleBackgroundColor = isMobileOverlayVisible ? Style.Color.Dark50 : Style.Color.Dark75;
+    const backgroundColor = (isMobileOrTablet && !scrolled) ? 'transparent' : visibleBackgroundColor;
 
     return (
-        <Box position="fixed" width="100%" left={0} top={0} background={(isMobileOrTablet && !scrolled) ? 'transparent' : Style.Color.Dark75} transition="0.5s ease" zIndex={99}>
-            <Container>
-                <Box margin={barMargin} display="flex" alignItems="center">
-                    <Box maxWidth={scrolled ? '500px' : '0'} transform={scrolled ? 'scale(1)' : 'scale(0)'} overflow="hidden" transition="0.5s ease">
-                        <Typography variant="heading2" animatedGradient noWrap>{Content.Name}</Typography>
+        <React.Fragment>
+            {isMobileOrTablet && <OverlayBackground isOpened={isMobileOverlayVisible} onClick={() => isMobileOverlayVisible && setIsMobileOverlayVisible(false)} />}
+            <Box position="fixed" width="100%" left={0} top={0} background={backgroundColor} transition="0.5s ease" zIndex={1000}>
+                <Container>
+                    <Box margin={barMargin} display="flex" alignItems="center">
+                        <Box maxWidth={scrolled ? '500px' : '0'} transform={scrolled ? 'scale(1)' : 'scale(0)'} overflow="hidden" transition="0.5s ease">
+                            <Typography variant="heading2" animatedGradient noWrap>{Content.Name}</Typography>
+                        </Box>
+                        <Box flexShrink={1} flexGrow={1} transition="0.5s"/>
+                        <Box flexShrink={0}>
+                            {renderDesktopMenu()}
+                        </Box>
+                        <Box flexShrink={1} flexGrow={scrolled ? 0 : 1} transition="0.5s ease"/>
+                        {renderMobileMenu()}
                     </Box>
-                    <Box flexShrink={1} flexGrow={1} transition="0.5s"/>
-                    <Box flexShrink={0}>
-                        {renderDesktopMenu()}
-                    </Box>
-                    <Box flexShrink={1} flexGrow={scrolled ? 0 : 1} transition="0.5s ease"/>
-                    {renderMobileMenu()}
-                </Box>
-            </Container>
-        </Box>
+                </Container>
+                {renderMobileOverlay()}
+            </Box>
+        </React.Fragment>
     )
 }
