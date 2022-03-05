@@ -1,11 +1,7 @@
-import { Box, BulletList, Card, Grid, Typography } from "../common"
+import { Box, Card, Grid, Typography } from "../common"
 import { Style } from "../styles/style"
 import { Logo } from "./Logo"
-import Agodee from "../assets/logos/agodee.jpeg"
-import { Icon } from "../styles/icons"
 import React from "react"
-import { Collapse } from 'react-collapse'
-import KMUTT from '../assets/logos/kmutt.png'
 import { ResponsiveContext } from "../contexts/responsive"
 import { EducationData } from "../data/educations"
 

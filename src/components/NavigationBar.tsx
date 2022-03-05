@@ -4,7 +4,6 @@ import { Content } from "../constants/content";
 import { getNavigationList } from "../constants/parameter"
 import { NavigationContext } from "../contexts/navigation";
 import { ResponsiveContext } from "../contexts/responsive";
-import { Icon } from "../styles/icons";
 import { Style } from "../styles/style"
 import { Squash as Hamburger } from 'hamburger-react'
 import { Collapse } from 'react-collapse'
@@ -66,6 +65,7 @@ export const NavigationBar = () => {
             <Grid inline gap={Style.Spacing.M}>
                 {getNavigationList().map(({ name, path }, index) =>
                     <Button
+                        key={`nav-${index}`}
                         small
                         noFilled
                         {...getButtonStyle(path)}
@@ -101,7 +101,7 @@ export const NavigationBar = () => {
                         <Box marginBottom={Style.Spacing.XXL} marginTop={Style.Spacing.L} textAlign="center">
                             <Stack vertical gap={Style.Spacing.XS}>
                                 {getNavigationList().map(({ name, path }, index) =>
-                                    <MobileNavigationItem onClick={() => handleMobileSetRoute(path)}>{name}</MobileNavigationItem>
+                                    <MobileNavigationItem key={`mob-nav-${index}`} onClick={() => handleMobileSetRoute(path)}>{name}</MobileNavigationItem>
                                 )}
                             </Stack>
                         </Box>

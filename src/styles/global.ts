@@ -30,7 +30,6 @@ export const GlobalStyle = createGlobalStyle`
 
     @keyframes gradientKeyframe {
         0% { background-position: 0%; }
-        /* 50% { background-position: 100% 50%; } */
         100% { background-position: 100%; }
     }
 
@@ -51,36 +50,36 @@ export const GlobalStyle = createGlobalStyle`
         }
     }
     .heading1 {
-        ${Style.Typography.Desktop.Heading1}
+        ${Style.Typography.Heading1}
     }
     .heading2 {
-        ${Style.Typography.Desktop.Heading2}
+        ${Style.Typography.Heading2}
     }
     .heading3 {
-        ${Style.Typography.Desktop.Heading3}
+        ${Style.Typography.Heading3}
     }
     .heading4 {
-        ${Style.Typography.Desktop.Heading4}
+        ${Style.Typography.Heading4}
     }
     .caption {
-        ${Style.Typography.Desktop.Caption}
+        ${Style.Typography.Caption}
     }
     .body1 {
-        ${Style.Typography.Desktop.Body1}
+        ${Style.Typography.Body1}
     }
     .body2 {
-        ${Style.Typography.Desktop.Body2}
+        ${Style.Typography.Body2}
     }
     .body3 {
-        ${Style.Typography.Desktop.Body3}
+        ${Style.Typography.Body3}
     }
     .label {
-        ${Style.Typography.Desktop.Label}
+        ${Style.Typography.Label}
     }
     .button1 {
-        ${Style.Typography.Desktop.Button1}
+        ${Style.Typography.Button1}
     }
     .button2 {
-        ${Style.Typography.Desktop.Button2}
+        ${Style.Typography.Button2}
     }
 `;

@@ -52,10 +52,7 @@ export const Button = (props: Props) => {
     }
     const typographyVariant = variant === 'large' ? 'button1' : 'button2';
     const handleClick = (e: React.MouseEvent<HTMLElement>) => {
-        console.log('on handleclick')
         e.stopPropagation();
-        console.log('hereee')
-        console.log(props.onClick)
         if (props.onClick) props.onClick();
     }
     return (

@@ -1,11 +1,8 @@
 import styled from "styled-components"
-import { Typography } from "..";
-import { Style } from "../../styles/style";
 
 interface Props {
     url: string;
     children?: React.ReactNode;
-    // block?: boolean
 }
 
 const StyledSpan = styled.span`

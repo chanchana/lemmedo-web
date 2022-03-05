@@ -1,15 +1,13 @@
 import React from "react"
 import styled from "styled-components"
 import { Box, Button, Card, Grid, Stack, Typography } from "../common"
-import { allCategory, Category } from "../data/categories"
-import { Icon } from "../styles/icons"
+import { allCategory } from "../data/categories"
 import { Style } from "../styles/style"
 import { Collapse } from 'react-collapse'
 import { Section } from "./Section"
 import { ShowcaseData } from "../data/showcases"
 import { OverlayBackground } from "./OverlayBackground"
 import { ModalMinimizeButton } from "./ModalMinimizeButton"
-import { activityImages } from "../data/activities"
 import { ImagesCarousel } from "./ImagesCarousel"
 import { PeopleDisplay } from "./PeopleDisplay"
 import { Tags } from "./Tags"
@@ -40,7 +38,7 @@ export const ShowcaseCard = (props: Props) => {
     const cardImageHeight = isMobile ? '240px' : '320px';
     const openedCardImageHeight = isMobile ? '240px' : '520px';
 
-    const showOverlayCard = () => {
+    const showOverlayCard = React.useCallback(() => {
         if (openCardRef?.current && cardRef?.current) {
             document.body.style.overflow = 'hidden';
             const openCardElement = openCardRef.current;
@@ -61,15 +59,12 @@ export const ShowcaseCard = (props: Props) => {
                 setIsOpened(true)
             }, 20);
         }
-    }
+    }, [isMobile])
 
     const hideOverlayCard = () => {
         if (openCardRef?.current && cardRef?.current) {
             const openCardElement = openCardRef.current;
             const cardElement = cardRef.current;
-            console.log({
-                elTop: cardElement.getBoundingClientRect().top,
-            })
             openCardElement.style.top = `${cardElement.getBoundingClientRect().top}px`;
             openCardElement.style.left = `${cardElement.getBoundingClientRect().left}px`;
             openCardElement.style.width = `${cardElement.offsetWidth}px`
@@ -86,7 +81,6 @@ export const ShowcaseCard = (props: Props) => {
     }
 
     const handleToggleOpen = React.useCallback(() => {
-        console.log('cccclick')
         if (!isOverlayVisible) {
             setIsOverlayVisible(true);
         } else {
@@ -98,7 +92,7 @@ export const ShowcaseCard = (props: Props) => {
         if (isOverlayVisible) {
             showOverlayCard();
         }
-    }, [isOverlayVisible])
+    }, [isOverlayVisible, showOverlayCard])
 
     React.useEffect(() => {
         if (!isOpened) {
@@ -108,8 +102,8 @@ export const ShowcaseCard = (props: Props) => {
 
     const renderCategories = () => (
         <Grid inline marginTop={Style.Spacing.XS} gap={Style.Spacing.S}>
-            {props.showcaseData.categories.map(value =>
-                <Button small icon={allCategory[value].icon} backgroundColor={allCategory[value].color}>{allCategory[value].name}</Button>
+            {props.showcaseData.categories.map((value, index) =>
+                <Button key={`category-${index}`} small icon={allCategory[value].icon} backgroundColor={allCategory[value].color}>{allCategory[value].name}</Button>
             )}
         </Grid>
     );
@@ -122,8 +116,8 @@ export const ShowcaseCard = (props: Props) => {
         <Stack vertical gap={Style.Spacing.L}>
             {props.showcaseData.details && <Section title="Description">
                 <Stack vertical gap={Style.Spacing.S}>
-                    {props.showcaseData.details.map((detail) => (
-                        <Typography variant="body2">{detail}</Typography>
+                    {props.showcaseData.details.map((detail, index) => (
+                        <Typography key={`detail-p-${index}`} variant="body2">{detail}</Typography>
                     ))}
                 </Stack>
             </Section>}
@@ -142,8 +136,8 @@ export const ShowcaseCard = (props: Props) => {
         <Stack vertical gap={Style.Spacing.L}>
             {props.showcaseData.contributors && <Section title="Contributors">
                 <Stack vertical gap={Style.Spacing.S}>
-                    {props.showcaseData.contributors.map((contributor) => (
-                        <PeopleDisplay titleVariant="body1" people={contributor.people} label={contributor.responsibility} />
+                    {props.showcaseData.contributors.map((contributor, index) => (
+                        <PeopleDisplay key={`people-${index}`} titleVariant="body1" people={contributor.people} label={contributor.responsibility} />
                     ))}
                 </Stack>
             </Section>}
@@ -152,8 +146,8 @@ export const ShowcaseCard = (props: Props) => {
             </Section>
             {props.showcaseData.externalLinks && <Section title="External Links">
                 <Stack vertical gap={Style.Spacing.S}>
-                    {props.showcaseData.externalLinks.map((externalLink) => (
-                        <ExternalLink text={externalLink.label || externalLink.url} url={externalLink.url} />
+                    {props.showcaseData.externalLinks.map((externalLink, index) => (
+                        <ExternalLink key={`ext-link-${index}`} text={externalLink.label || externalLink.url} url={externalLink.url} />
                     ))}
                 </Stack>
             </Section>}

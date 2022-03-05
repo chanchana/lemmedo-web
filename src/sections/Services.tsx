@@ -1,5 +1,5 @@
 import React from "react"
-import { Box, Card, Grid, Typography } from "../common"
+import { Grid } from "../common"
 import { Collapsible } from "../components/Collapsible"
 import { SectionHeading } from "../components/SectionHeader"
 import { ServiceCard } from "../components/ServiceCard"
@@ -17,8 +17,8 @@ export const Services = () => {
 
     const renderDesktopServices = () => (
         <Grid columns={3} gap={Style.Spacing.L}>
-            {serviceContents.map(({ title, caption, icon }) =>
-                <ServiceCard title={title} caption={caption} icon={icon} />
+            {serviceContents.map(({ title, caption, icon }, index) =>
+                <ServiceCard key={`service-${index}`} title={title} caption={caption} icon={icon} />
             )}
         </Grid>
     )
@@ -26,14 +26,14 @@ export const Services = () => {
     const renderMobileServices = () => (
         <React.Fragment>
             <Grid columns={2} gap={Style.Spacing.L}>
-                {serviceContents.slice(0, 4).map(({ title, caption, icon }) =>
-                    <ServiceCard title={title} caption={caption} icon={icon} />
+                {serviceContents.slice(0, 4).map(({ title, caption, icon }, index) =>
+                    <ServiceCard key={`service-${index}`} title={title} caption={caption} icon={icon} />
                 )}
             </Grid>
             <Collapsible>
                 <Grid columns={2} gap={Style.Spacing.L} marginTop={Style.Spacing.L}>
-                    {serviceContents.slice(4).map(({ title, caption, icon }) =>
-                        <ServiceCard title={title} caption={caption} icon={icon} />
+                    {serviceContents.slice(4).map(({ title, caption, icon }, index) =>
+                        <ServiceCard key={`service-sub-${index}`} title={title} caption={caption} icon={icon} />
                     )}
                 </Grid>
             </Collapsible>

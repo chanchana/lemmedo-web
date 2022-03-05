@@ -8,7 +8,6 @@ export const useRoute = (): [string | null, (newRoute: string | undefined) => vo
     const { setRoutePath } = React.useContext(NavigationContext)
 
     const setRoute = (newRoute: string | undefined, redirect?: boolean) => {
-        console.log({ newRoute })
         if (!newRoute || newRoute === Parameter.Navigation.Home.Path) {
             setSearchParams({}, { replace: !redirect })
             if (setRoutePath) setRoutePath(Parameter.Navigation.Home.Path);

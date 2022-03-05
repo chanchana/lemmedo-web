@@ -16,10 +16,6 @@ background: ${gradient};
 -webkit-text-fill-color: transparent;
 `;
 
-// TODO: refactor keyframes?
-
-// background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-
 export const textAnimatedGradient = `
 background: linear-gradient(-45deg,
     ${Style.Color.Green}, ${Style.Color.Cyan}, ${Style.Color.Yellow}, ${Style.Color.Orange}, ${Style.Color.Red}, ${Style.Color.Purple}

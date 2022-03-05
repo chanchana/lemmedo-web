@@ -1,5 +1,5 @@
 import React from "react"
-import { Box, Card, Grid, OverflowBox, Stack } from "../common"
+import { Box, Card, Stack } from "../common"
 import { EducationCard } from "../components/EducationCard"
 import { ImagesCarousel } from "../components/ImagesCarousel"
 import { Section } from "../components/Section"
@@ -26,12 +26,12 @@ export const About = () => {
             <Stack vertical gap={Style.Spacing.XXL}>
                 <Section title={Content.About.WorkExperienceHeading}>
                     <Timeline visibleCount={3} lined={!isMobile}>
-                        {workExperiences.map((data, index) => <WorkExperienceCard workExperienceData={data} />)}
+                        {workExperiences.map((data, index) => <WorkExperienceCard key={`work-${index}`} workExperienceData={data} />)}
                     </Timeline>
                 </Section>
                 <Section title={Content.About.EducationHeading}>
                     <Timeline visibleCount={3} lined={!isMobile}>
-                        {educations.map((data, index) => <EducationCard educationData={data} />)}
+                        {educations.map((data, index) => <EducationCard key={`education-${index}`} educationData={data} />)}
                     </Timeline>
                 </Section>
                 <Section title={Content.About.ActivitiesHeading}>

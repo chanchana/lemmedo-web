@@ -1,10 +1,9 @@
 import React from "react"
-import { Box, Button, Card, Grid, Link, Stack, TextArea, TextField, Tooltip, Typography } from "../common"
+import { Card, Grid, Stack, Typography } from "../common"
 import { ContactForm } from "../components/ContactForm"
 import { ContactLink } from "../components/ContactLink"
 import { Section } from "../components/Section"
 import { SectionHeading } from "../components/SectionHeader"
-import { ServiceCard } from "../components/ServiceCard"
 import { SocialContactLink } from "../components/SocialContactLink"
 import { Content } from "../constants/content"
 import { Parameter } from "../constants/parameter"
@@ -29,7 +28,7 @@ export const Contact = () => {
                     <Stack vertical gap={Style.Spacing.XL}>
                         <Section title={Content.Contact.Contact}>
                             <Stack vertical gap={Style.Spacing.S}>
-                                {contacts.map(contactData => <ContactLink contactData={contactData} />)}
+                                {contacts.map((contactData, index) => <ContactLink key={`contact-${index}`} contactData={contactData} />)}
                             </Stack>
                         </Section>
                         <Section title={Content.Contact.BasedIn}>
@@ -37,7 +36,7 @@ export const Contact = () => {
                         </Section>
                         <Section title={Content.Contact.Social}>
                             <Stack horizontal gap={Style.Spacing.S}>
-                                {socialContacts.map(contactData => <SocialContactLink contactData={contactData} />)}
+                                {socialContacts.map((contactData, index) => <SocialContactLink key={`social-contact-${index}`} contactData={contactData} />)}
                             </Stack>
                         </Section>
                     </Stack>

@@ -20,12 +20,12 @@ export const Title = () => {
     const FadeOverlay = () => <Box width="100%" background={Style.Gradient.FadeBlackBottom} height={height} position="absolute" left={0} top={0} />;
     const Picture = () => (
         <Box position="absolute" bottom={0} right="-20px">
-            <img src={PictureSrc} height={510} />
+            <img src={PictureSrc} height={510} alt="Chanchana" />
         </Box>
     );
     const MobilePicture = () => (
         <Box position="absolute" center bottom={0} width="100%">
-            <img src={PictureSrc} width="280px" />
+            <img src={PictureSrc} width="280px" alt="Chanchana" />
         </Box>
     );
 

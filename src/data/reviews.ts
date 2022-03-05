@@ -1,4 +1,3 @@
-import SampleFace from '../assets/reviews/sample.png';
 import { people, People } from './people';
 
 export interface ReviewData {

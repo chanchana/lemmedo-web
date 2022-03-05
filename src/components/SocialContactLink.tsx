@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Box, Link, Tooltip, Typography } from "../common";
+import { Box, Link, Tooltip } from "../common";
 import { ContactData } from "../data/contact";
 import { Style } from "../styles/style";
 

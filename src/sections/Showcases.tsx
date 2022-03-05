@@ -1,21 +1,17 @@
-import { Box, Button, Card, Grid, Typography } from "../common"
+import { Grid } from "../common"
 import { CategorySelect } from "../components/CategorySelect"
 import { SectionHeading } from "../components/SectionHeader"
 import { Content } from "../constants/content"
 import { Style } from "../styles/style"
-import SampleImage from "../assets/showcases/sample.jpg";
 import { ShowcaseCard } from "../components/ShowcaseCard"
 import { Category } from "../data/categories"
-import { Icon } from "../styles/icons"
 import React from "react"
 import { Collapsible } from "../components/Collapsible"
-import { getShowcasesByCategory, ShowcaseData } from "../data/showcases"
+import { getShowcasesByCategory } from "../data/showcases"
 import { Parameter } from "../constants/parameter"
 import { useNavigation } from "../hooks/useNavigation"
 import { ResponsiveContext } from "../contexts/responsive"
 
-const fakeTitle = "Pordeetorjai Personal Website";
-const fakeCaption = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium a mi et bibendum. Pellentesque ac. dolor sit amet, consectetur adipiscing elit. Phasellus pretium a mi et bibendum. Pellentesque ac.';
 
 export const Showcases = () => {
     const sectionRef = React.useRef(null)
@@ -30,10 +26,6 @@ export const Showcases = () => {
     const handleChangeCategory = (category: Category) => {
         setSelectedCategory(category)
     }
-    
-    const renderShowcaseCard = (showcase: ShowcaseData) => (
-        <ShowcaseCard showcaseData={showcase} />
-    );
 
     return (
         <div ref={sectionRef}>
@@ -41,11 +33,11 @@ export const Showcases = () => {
                 <CategorySelect onChange={handleChangeCategory} />
             </SectionHeading>
             <Grid columns={isMobile ? 1 : 2} gap={Style.Spacing.L}>
-                {visibleShowcases.map(showcase => renderShowcaseCard(showcase))}
+                {visibleShowcases.map((showcase, index) => <ShowcaseCard key={`showcase-${index}`} showcaseData={showcase} />)}
             </Grid>
             {hiddenShowcases.length > 0 && <Collapsible>
                 <Grid columns={isMobile ? 1 : 2} gap={Style.Spacing.L} marginTop={Style.Spacing.L}>
-                    {hiddenShowcases.map(showcase => renderShowcaseCard(showcase))}
+                    {hiddenShowcases.map((showcase, index) => <ShowcaseCard key={`showcase-${index}`} showcaseData={showcase} />)}
                 </Grid>
             </Collapsible>}
         </div>

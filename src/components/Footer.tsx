@@ -35,7 +35,7 @@ export const Footer = () => {
                 <Typography variant="heading3" color={Style.Color.Light50}>{Content.Footer.SiteMap}</Typography>
                 <Grid marginTop={Style.Spacing.S} flowRow>
                     {getNavigationList().map(({ name, path }, index) =>
-                        <Typography interactive onClick={() => setNewRoutePath && setNewRoutePath(path)} variant="body2" color={Style.Color.Light25}>{name}</Typography>
+                        <Typography key={`footer-nav-${index}`} interactive onClick={() => setNewRoutePath && setNewRoutePath(path)} variant="body2" color={Style.Color.Light25}>{name}</Typography>
                     )}
                 </Grid>
             </Box>

@@ -11,7 +11,7 @@ export const useResponsive = () => {
 
     const getWidth = () => window.innerWidth;
 
-    const setResponsive = () => {
+    const setResponsive = React.useCallback(() => {
         const width = getWidth();
         let mobile = false;
         let tablet = false;
@@ -28,13 +28,13 @@ export const useResponsive = () => {
         setIsDesktop(desktop);
         setIsMobileOrTablet(mobile || tablet);
         setIsTabletOrDesktop(tablet || desktop);
-    };
+    }, []);
 
     React.useLayoutEffect(() => {
         setResponsive();
         window.addEventListener('resize', setResponsive);
         return () => window.removeEventListener('resize', setResponsive);
-    }, []);
+    }, [setResponsive]);
 
     return ({
         isMobile,

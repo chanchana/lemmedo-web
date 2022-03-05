@@ -1,6 +1,6 @@
 import React from "react"
 import { Button, Grid } from "../common"
-import { allCategory, Category, CategoryData, getCategories } from "../data/categories"
+import { Category, getCategories } from "../data/categories"
 import { Style } from "../styles/style"
 
 interface Props {
@@ -24,8 +24,8 @@ export const CategorySelect = (props: Props) => {
 
     return (
         <Grid inline gap={Style.Spacing.S}>
-            {getCategories(true).map(value => (
-                <Button small onClick={() => handleClick(value.category)} icon={value.icon} {...getButtonStyleProps(value.category)}>{value.name}</Button>)
+            {getCategories(true).map((value, index) => (
+                <Button key={`category-select-${index}`} small onClick={() => handleClick(value.category)} icon={value.icon} {...getButtonStyleProps(value.category)}>{value.name}</Button>)
             )}
         </Grid>
     )

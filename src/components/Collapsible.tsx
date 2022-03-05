@@ -1,8 +1,6 @@
 import React from 'react';
 import { Collapse } from 'react-collapse';
-import { Box, Button } from '../common';
-import { Content } from '../constants/content';
-import { Icon } from '../styles/icons';
+import { Box } from '../common';
 import { Style } from '../styles/style';
 import { ExpandButton } from './ExpandButton';
 

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { SetStateAction } from 'react';
 import { Dispatch } from 'react';
 import { Parameter } from '../constants/parameter';
-import { useRoute } from '../hooks/useRoute';
 
 interface INavigationContext {
     routePath: string;

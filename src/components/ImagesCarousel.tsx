@@ -1,6 +1,6 @@
-import React, { createRef, useRef } from "react";
+import React from "react";
 import styled from "styled-components";
-import { OverflowBox, Box, Grid, Tooltip, Card, Container, Button, Typography } from "../common";
+import { OverflowBox, Box, Grid, Card, Button, Typography } from "../common";
 import { Image } from "../data/image";
 import { Style } from "../styles/style";
 import { OverlayBackground } from "./OverlayBackground";
@@ -64,7 +64,7 @@ export const ImagesCarousel = (props: Props) => {
         setThumbnailRefs((thumbnailRefs) =>
             props.images.map((_, index) => thumbnailRefs[index] || React.createRef())
         );
-    }, [])
+    }, [props.images])
 
     const handleOpenModal = (currentIndex: number) => {
         const ref = thumbnailRefs[currentIndex]
@@ -198,7 +198,7 @@ export const ImagesCarousel = (props: Props) => {
             <OverflowBox>
                 <Grid gap={Style.Spacing.S}>
                     {props.images.map((image, index) => (
-                        <ThumbnailImage ref={thumbnailRefs[index]} onClick={() => handleOpenModal(index)} src={image.imageUrl} size={thumbnailSize} />
+                        <ThumbnailImage key={`img-thumbnail-${index}`} ref={thumbnailRefs[index]} onClick={() => handleOpenModal(index)} src={image.imageUrl} size={thumbnailSize} />
                     ))}
                 </Grid>
             </OverflowBox>

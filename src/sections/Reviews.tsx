@@ -1,8 +1,7 @@
 import React from "react"
-import { Box, Card, Grid, OverflowBox, Typography } from "../common"
+import { Box, Grid, OverflowBox } from "../common"
 import { ReviewCard } from "../components/ReviewCard"
 import { SectionHeading } from "../components/SectionHeader"
-import { ServiceCard } from "../components/ServiceCard"
 import { Content } from "../constants/content"
 import { Parameter } from "../constants/parameter"
 import { useNavigation } from "../hooks/useNavigation"
@@ -18,7 +17,7 @@ export const Reviews = () => {
             <OverflowBox extended>
                 <Box paddingBottom={Style.Spacing.L}>
                     <Grid inline gap={Style.Spacing.L}>
-                        {Content.Reviews.Data.map(review => <ReviewCard data={review} />)}
+                        {Content.Reviews.Data.map((review, index) => <ReviewCard key={`review-${index}`} data={review} />)}
                     </Grid>
                 </Box>
             </OverflowBox>

@@ -33,7 +33,7 @@ export const Timeline = (props: Props) => {
         <React.Fragment>
             <Box position="relative">
                 {React.Children.map(props.children, (child: React.ReactNode, index: number) => (
-                    <Box marginLeft={isExpandable && props.lined ? '4px' : 0}>
+                    <Box key={`timeline-item-${index}`} marginLeft={isExpandable && props.lined ? '4px' : 0}>
                         <Collapse isOpened={!(props.visibleCount && !isExpanded && index > props.visibleCount - 1)}>
                             <StyledTimelineItem>
                                 {props.lined && <Box center width={indentWidth} alignItems="baseline" paddingTop="52px">

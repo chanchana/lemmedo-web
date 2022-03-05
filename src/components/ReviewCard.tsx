@@ -1,5 +1,4 @@
-import { Avatar, Box, Card, Typography } from "../common"
-import SampleFace from '../assets/reviews/sample.png';
+import { Box, Card, Typography } from "../common"
 import { Style } from "../styles/style";
 import { ReviewData } from "../data/reviews";
 import { PeopleDisplay } from "./PeopleDisplay";

@@ -62,12 +62,9 @@ export const TextArea = (props: Props) => {
     const textAreaRef = React.useRef(null)
     const handleScroll = () => {
         if (textAreaRef && textAreaRef.current) {
-            console.log((textAreaRef.current as any).scrollTop)
             if ((textAreaRef.current as any).scrollTop > 0) {
-                console.log('scrolled');
                 setScrolled(true)
             } else {
-                console.log('no scrolled');
                 setScrolled(false)
             }
         }

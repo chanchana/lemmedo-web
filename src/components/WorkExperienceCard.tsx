@@ -1,7 +1,6 @@
 import { Box, BulletList, Card, Grid, Typography } from "../common"
 import { Style } from "../styles/style"
 import { Logo } from "./Logo"
-import Agodee from "../assets/logos/agodee.jpeg"
 import { Icon } from "../styles/icons"
 import React from "react"
 import { Collapse } from 'react-collapse'
@@ -34,7 +33,7 @@ export const WorkExperienceCard = (props: Props) => {
                 <Box paddingTop={Style.Spacing.L} paddingLeft={isMobile ? '12px' : '120px'}>
                     <BulletList>
                         {props.workExperienceData.bulletDescriptions.map((text, index) => (
-                            <Typography>{text}</Typography>
+                            <Typography key={`work-bullet-${index}`}>{text}</Typography>
                         ))}
                     </BulletList>
                 </Box>
