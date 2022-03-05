@@ -9,8 +9,20 @@ import { Style } from "../styles/style"
 import { Squash as Hamburger } from 'hamburger-react'
 import { Collapse } from 'react-collapse'
 import { OverlayBackground } from "./OverlayBackground";
+import styled from "styled-components";
 
 const scrollThreshold = 300;
+
+const MobileNavigationItem = styled.div`
+    height: 48px;
+    ${Style.Typography.Desktop.Button1};
+    line-height: 48px;
+    cursor: pointer;
+    color: ${Style.Color.Light100};
+    &:hover, &:active {
+        color: ${Style.Color.Purple};
+    }
+`
 
 export const NavigationBar = () => {
     const [scrolled, setScrolled] = React.useState<boolean>(false);
@@ -86,10 +98,10 @@ export const NavigationBar = () => {
             isMobileOrTablet && (
                 <Collapse isOpened={isMobileOverlayVisible}>
                     <Container>
-                        <Box marginBottom={Style.Spacing.XXXL} marginTop={Style.Spacing.L} textAlign="right">
-                            <Stack vertical gap={Style.Spacing.XL}>
+                        <Box marginBottom={Style.Spacing.XXL} marginTop={Style.Spacing.L} textAlign="center">
+                            <Stack vertical gap={Style.Spacing.XS}>
                                 {getNavigationList().map(({ name, path }, index) =>
-                                    <Typography block interactive variant="button1" onClick={() => handleMobileSetRoute(path)}>{name}</Typography>
+                                    <MobileNavigationItem onClick={() => handleMobileSetRoute(path)}>{name}</MobileNavigationItem>
                                 )}
                             </Stack>
                         </Box>
