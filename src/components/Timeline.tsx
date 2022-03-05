@@ -36,7 +36,7 @@ export const Timeline = (props: Props) => {
                     <Box marginLeft={isExpandable && props.lined ? '4px' : 0}>
                         <Collapse isOpened={!(props.visibleCount && !isExpanded && index > props.visibleCount - 1)}>
                             <StyledTimelineItem>
-                                {props.lined && <Box center width={indentWidth} alignItems="baseline" paddingTop={Style.Spacing.L}>
+                                {props.lined && <Box center width={indentWidth} alignItems="baseline" paddingTop="52px">
                                     <Box width={dotSize} height={dotSize} borderRadius="50%" background={lineColor} outline={`4px solid ${lineStrokeColor}`} />
                                 </Box>}
                                 <Box flexGrow={1} marginLeft={props.lined ? Style.Spacing.M : undefined}>
