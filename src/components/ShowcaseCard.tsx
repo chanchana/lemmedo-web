@@ -14,26 +14,31 @@ import { ImagesCarousel } from "./ImagesCarousel"
 import { PeopleDisplay } from "./PeopleDisplay"
 import { Tags } from "./Tags"
 import { ExternalLink } from "./ExternalLink"
+import { ResponsiveContext } from "../contexts/responsive"
 
 interface Props {
     showcaseData: ShowcaseData;
 }
 
-const OverlayCard = styled.div`
+const OverlayCard = styled.div<{fullHeight: boolean}>`
     display: none;
     position: fixed;
     top: 0;
     left: 0;
     justify-content: center;
     pointer-events: none;
-    max-height: calc(100% - (2 * ${Style.Spacing.L}));
+    max-height: ${props => props.fullHeight ? '100%' : `calc(100% - (2 * ${Style.Spacing.L}))`};
 `;
 
 export const ShowcaseCard = (props: Props) => {
+    const { isMobile } = React.useContext(ResponsiveContext)
     const [isOpened, setIsOpened] = React.useState(false)
     const [isOverlayVisible, setIsOverlayVisible] = React.useState(false)
     const cardRef = React.useRef<HTMLDivElement>(null)
     const openCardRef = React.useRef<HTMLDivElement>(null)
+
+    const cardImageHeight = isMobile ? '240px' : '320px';
+    const openedCardImageHeight = isMobile ? '240px' : '520px';
 
     const showOverlayCard = () => {
         if (openCardRef?.current && cardRef?.current) {
@@ -49,7 +54,7 @@ export const ShowcaseCard = (props: Props) => {
             openCardElement.style.zIndex = '0';
             cardElement.style.opacity = '0';
             setTimeout(() => {
-                openCardElement.style.top = Style.Spacing.L;
+                openCardElement.style.top = isMobile ? '0' : Style.Spacing.L;
                 openCardElement.style.left = '0px';
                 openCardElement.style.width = '100%';
                 openCardElement.style.zIndex = '9999';
@@ -113,60 +118,80 @@ export const ShowcaseCard = (props: Props) => {
         <Typography block variant="body2" marginTop={Style.Spacing.L}>{props.showcaseData.caption}</Typography>
     );
 
+    const renderDetailDescription = () => (
+        <Stack vertical gap={Style.Spacing.L}>
+            {props.showcaseData.details && <Section title="Description">
+                <Stack vertical gap={Style.Spacing.S}>
+                    {props.showcaseData.details.map((detail) => (
+                        <Typography variant="body2">{detail}</Typography>
+                    ))}
+                </Stack>
+            </Section>}
+            {props.showcaseData.tools && <Section title="Tools">
+                <Tags tags={props.showcaseData.tools} />
+            </Section>}
+            {props.showcaseData.images && <Section title="Images">
+                <Box>
+                    <ImagesCarousel images={props.showcaseData.images} />
+                </Box>
+            </Section>}
+        </Stack>
+    )
+
+    const renderDetailSideDescription = () => (
+        <Stack vertical gap={Style.Spacing.L}>
+            {props.showcaseData.contributors && <Section title="Contributors">
+                <Stack vertical gap={Style.Spacing.S}>
+                    {props.showcaseData.contributors.map((contributor) => (
+                        <PeopleDisplay titleVariant="body1" people={contributor.people} label={contributor.responsibility} />
+                    ))}
+                </Stack>
+            </Section>}
+            <Section title="Date">
+                <Typography>{props.showcaseData.date}</Typography>
+            </Section>
+            {props.showcaseData.externalLinks && <Section title="External Links">
+                <Stack vertical gap={Style.Spacing.S}>
+                    {props.showcaseData.externalLinks.map((externalLink) => (
+                        <ExternalLink text={externalLink.label || externalLink.url} url={externalLink.url} />
+                    ))}
+                </Stack>
+            </Section>}
+        </Stack>
+    )
+
+    const renderDetailDesktop = () => (
+        <Grid templateColumn="70% 1fr" marginTop={Style.Spacing.XXL} gap={Style.Spacing.XL}>
+            {renderDetailDescription()}
+            {renderDetailSideDescription()}
+        </Grid>
+    )
+
+    const renderDetailMobile = () => (
+        <Stack vertical gap={Style.Spacing.XL} marginTop={Style.Spacing.XXL}>
+            {renderDetailDescription()}
+            {renderDetailSideDescription()}
+        </Stack>
+    )
+
     return (
         <React.Fragment>
             <div ref={cardRef}>
-                <Card imageUrl={props.showcaseData.imageUrl} onClick={handleToggleOpen} interactive>
+                <Card imageUrl={props.showcaseData.imageUrl} onClick={handleToggleOpen} interactive imageHeight={cardImageHeight}>
                     <Typography block variant="heading3">{props.showcaseData.title}</Typography>
                     {renderCategories()}
                     {renderCaption()}
                 </Card>
             </div>
             {isOverlayVisible && <OverlayBackground isOpened={isOpened} onClick={handleToggleOpen} />}
-            {isOverlayVisible && <OverlayCard ref={openCardRef}>
-                <Card overflowScroll imageUrl={props.showcaseData.imageUrl} withImagePadding={isOpened} imageHeight={isOpened ? '520px' : undefined} maxWidth={Style.Css.MaxContainerWidth}>
+            {isOverlayVisible && <OverlayCard ref={openCardRef} fullHeight={isMobile}>
+                <Card overflowScroll imageUrl={props.showcaseData.imageUrl} withImagePadding={isOpened} imageHeight={isOpened ? openedCardImageHeight : cardImageHeight} maxWidth={Style.Css.MaxContainerWidth}>
                     <Typography block variant={isOpened ? 'heading2' : 'heading3'}>{props.showcaseData.title}</Typography>
                     {renderCategories()}
                     {renderCaption()}
                     <Collapse isOpened={isOpened}>
-                        <Grid templateColumn="70% 1fr" marginTop={Style.Spacing.XXL} gap={Style.Spacing.XL}>
-                            <Stack vertical gap={Style.Spacing.L}>
-                                {props.showcaseData.details && <Section title="Description">
-                                    <Stack vertical gap={Style.Spacing.S}>
-                                        {props.showcaseData.details.map((detail) => (
-                                            <Typography variant="body2">{detail}</Typography>
-                                        ))}
-                                    </Stack>
-                                </Section>}
-                                {props.showcaseData.tools && <Section title="Tools">
-                                    <Tags tags={props.showcaseData.tools} />
-                                </Section>}
-                                {props.showcaseData.images && <Section title="Images">
-                                    <Box>
-                                        <ImagesCarousel images={props.showcaseData.images} />
-                                    </Box>
-                                </Section>}
-                            </Stack>
-                            <Stack vertical gap={Style.Spacing.L}>
-                                {props.showcaseData.contributors && <Section title="Contributors">
-                                    <Stack vertical gap={Style.Spacing.S}>
-                                        {props.showcaseData.contributors.map((contributor) => (
-                                            <PeopleDisplay titleVariant="body1" people={contributor.people} label={contributor.responsibility} />
-                                        ))}
-                                    </Stack>
-                                </Section>}
-                                <Section title="Date">
-                                    <Typography>{props.showcaseData.date}</Typography>
-                                </Section>
-                                {props.showcaseData.externalLinks && <Section title="External Links">
-                                    <Stack vertical gap={Style.Spacing.S}>
-                                        {props.showcaseData.externalLinks.map((externalLink) => (
-                                            <ExternalLink text={externalLink.label || externalLink.url} url={externalLink.url} />
-                                        ))}
-                                    </Stack>
-                                </Section>}
-                            </Stack>
-                        </Grid>
+                        {isMobile && renderDetailMobile()}
+                        {!isMobile && renderDetailDesktop()}
                     </Collapse>
                     <ModalMinimizeButton opened={isOpened} onClick={handleToggleOpen} />
                 </Card>

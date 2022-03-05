@@ -5,7 +5,7 @@ interface Props {
     children?: React.ReactNode;
 }
 
-const width = `calc(100% - (2 * ${Style.Spacing.XL}))`
+const width = `calc(100% - (2 * ${Style.Spacing.L}))`
 const maxWidth = Style.Css.MaxContainerWidth;
 
 export const Container = (props: Props) => {

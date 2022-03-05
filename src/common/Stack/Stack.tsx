@@ -6,6 +6,7 @@ interface Props {
     horizontal?: boolean;
     gap?: string;
     children?: React.ReactNode;
+    marginTop?: string;
 }
 
 const StyledContainer = styled.div`
@@ -15,6 +16,7 @@ const StyledContainer = styled.div`
 
 const StyledChildContainer = styled.div<Props>`
     display: ${props => props.vertical ? 'block' : props.horizontal ? 'inline-block' : 'block'};
+    margin-top: ${props => props.marginTop};
     position: relative;
 
     &:not(:last-child) {
