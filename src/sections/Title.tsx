@@ -13,8 +13,8 @@ const mobileHeight = 620;
 
 export const Title = () => {
     const sectionRef = React.useRef(null)
-    useNavigation(sectionRef)
-    const { setRoute } = React.useContext(NavigationContext)
+    useNavigation(sectionRef, Parameter.Navigation.Home.Path)
+    const { setNewRoutePath } = React.useContext(NavigationContext)
     const { isMobile } = React.useContext(ResponsiveContext)
     
     const FadeOverlay = () => <Box width="100%" background={Style.Gradient.FadeBlackBottom} height={height} position="absolute" left={0} top={0} />;
@@ -30,11 +30,8 @@ export const Title = () => {
     );
 
     const handleClick = () => {
-        if (setRoute) {
-            setRoute(undefined)
-            setTimeout(() => {
-                setRoute(Parameter.Navigation.Contact.Path)
-            }, 100)
+        if (setNewRoutePath) {
+            setNewRoutePath(Parameter.Navigation.Contact.Path)
         }
     }
     const height = isMobile ? mobileHeight : desktopHeight

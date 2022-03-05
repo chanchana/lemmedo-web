@@ -14,7 +14,7 @@ const scrollThreshold = 300;
 
 export const NavigationBar = () => {
     const [scrolled, setScrolled] = React.useState<boolean>(false);
-    const { routePath, setRoute } = React.useContext(NavigationContext);
+    const { routePath, setNewRoutePath } = React.useContext(NavigationContext);
     const { isDesktop, isMobileOrTablet } = React.useContext(ResponsiveContext);
     const [isMobileOverlayVisible, setIsMobileOverlayVisible] = React.useState<boolean>(false);
 
@@ -57,7 +57,7 @@ export const NavigationBar = () => {
                         small
                         noFilled
                         {...getButtonStyle(path)}
-                        onClick={() => setRoute && setRoute(path)}
+                        onClick={() => setNewRoutePath && setNewRoutePath(path)}
                     >
                         {name}
                     </Button>
@@ -75,9 +75,9 @@ export const NavigationBar = () => {
     }
 
     const handleMobileSetRoute = (path: string) => {
-        if(setRoute) {
+        if(setNewRoutePath) {
             setIsMobileOverlayVisible(false)
-            setRoute(path)
+            setNewRoutePath(path)
         }
     }
 

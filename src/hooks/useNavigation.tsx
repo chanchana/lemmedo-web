@@ -4,22 +4,23 @@ import { Parameter } from "../constants/parameter";
 import { NavigationContext } from "../contexts/navigation";
 import { useOnScreen } from "./useOnScreen";
 
-export const useNavigation = (ref: any, path?: string) => {
-    const { setRoutePath } = React.useContext(NavigationContext);
-    const [searchParams, setSearchParams] = useSearchParams()
+export const useNavigation = (ref: React.RefObject<HTMLDivElement>, path: string) => {
+    const { routePath, setRoutePath, newRoutePath, setNewRoutePath } = React.useContext(NavigationContext);
     const isOnScreen = useOnScreen(ref)
 
     React.useEffect(() => {
         if (isOnScreen) {
-            setRoutePath && setRoutePath(path ? path : Parameter.Navigation.Home.Path)
+            setRoutePath && setRoutePath(path)
         }
     }, [isOnScreen])
 
     React.useEffect(() => {
-        const route = searchParams.get(Parameter.RouteQueryStringKey)
-        if (route === path || (!path)) {
-            const element = (ref.current as any)
-            window.scrollTo({ behavior: 'smooth', top: element.offsetTop - 120 })
+        if (newRoutePath !== '' && newRoutePath === path && ref.current) {
+            window.scrollTo({ behavior: 'smooth', top: ref.current.offsetTop - 120 })
+            if (setRoutePath && setNewRoutePath) {
+                setRoutePath(newRoutePath)
+                setNewRoutePath('')
+            }
         }
-    }, [searchParams])
+    }, [newRoutePath])
 }

@@ -7,7 +7,7 @@ import { mainContact } from "../data/contact";
 import { Style } from "../styles/style";
 
 export const Footer = () => {
-    const { setRoute } = React.useContext(NavigationContext)
+    const { setNewRoutePath } = React.useContext(NavigationContext)
 
     return (
         <Box marginTop={Style.Spacing.XXXL} width="100%" background={Style.Color.Dark100}>
@@ -31,7 +31,7 @@ export const Footer = () => {
                             <Typography variant="heading3" color={Style.Color.Light50}>{Content.Footer.SiteMap}</Typography>
                             <Grid marginTop={Style.Spacing.S} flowRow>
                                 {getNavigationList().map(({ name, path }, index) =>
-                                    <Typography interactive onClick={() => setRoute && setRoute(path)} variant="body2" color={Style.Color.Light25}>{name}</Typography>
+                                    <Typography interactive onClick={() => setNewRoutePath && setNewRoutePath(path)} variant="body2" color={Style.Color.Light25}>{name}</Typography>
                                 )}
                             </Grid>
                         </Box>
