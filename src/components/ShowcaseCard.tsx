@@ -193,7 +193,7 @@ export const ShowcaseCard = (props: Props) => {
                         {isMobile && renderDetailMobile()}
                         {!isMobile && renderDetailDesktop()}
                     </Collapse>
-                    <ModalMinimizeButton opened={isOpened} onClick={handleToggleOpen} />
+                    <ModalMinimizeButton opened={isOpened} onClick={handleToggleOpen} isMobile={isMobile} />
                 </Card>
             </OverlayCard>}
         </React.Fragment>

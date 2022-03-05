@@ -7,6 +7,7 @@ import { OverlayBackground } from "./OverlayBackground";
 import { Icon } from "../styles/icons";
 import { ModalMinimizeButton } from "./ModalMinimizeButton";
 import { Collapse } from 'react-collapse'
+import { ResponsiveContext } from "../contexts/responsive";
 
 interface Props {
     images: Image[];
@@ -47,6 +48,7 @@ const ModalCardImage = styled.img<{ opened: boolean }>`
 `
 
 export const ImagesCarousel = (props: Props) => {
+    const { isMobile } = React.useContext(ResponsiveContext);
     const [isModalOpened, setIsModalOpened] = React.useState<boolean>(false);
     const [currentIndex, setCurrentIndex] = React.useState<number>(0);
     const [openedRef, setOpenedRef] = React.useState<React.RefObject<HTMLImageElement>>()
@@ -155,7 +157,7 @@ export const ImagesCarousel = (props: Props) => {
                             </Typography>
                         </Box>
                     </Collapse>
-                    <ModalMinimizeButton opened={isModalOpened} onClick={handleCloseModal}/>
+                    <ModalMinimizeButton opened={isModalOpened} onClick={handleCloseModal} isMobile={isMobile} />
                 </Card>
             </Overlay>
         </React.Fragment>
