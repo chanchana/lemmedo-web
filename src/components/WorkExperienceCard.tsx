@@ -6,9 +6,10 @@ import { Icon } from "../styles/icons"
 import React from "react"
 import { Collapse } from 'react-collapse'
 import { ResponsiveContext } from "../contexts/responsive"
+import { getDuration, getYear, WorkExperienceData } from "../data/workExperiences"
 
 interface Props {
-    // workExperienceData: WorkExperienceData;
+    workExperienceData: WorkExperienceData;
 }
 
 export const WorkExperienceCard = (props: Props) => {
@@ -17,12 +18,12 @@ export const WorkExperienceCard = (props: Props) => {
     return (
         <Card interactive heightFitContent onClick={() => setIsExpanded(!isExpanded)}>
             <Grid templateColumn="auto 1fr auto" gap={Style.Spacing.L}>
-                <Logo image={Agodee} mobile={isMobile} />
+                <Logo image={props.workExperienceData.logoSrc} mobile={isMobile} />
                 <Box center justifyContent="start">
                     <Box>
-                        <Typography block variant="caption"><strong>69 Months</strong>, 2021 - Present</Typography>
-                        <Typography block variant="heading3">Software Engineer, Agodee</Typography>
-                        <Typography block variant="body2">Maintain frontend side projects which use TypeScript, React, and C# for the web server.</Typography>
+                        <Typography block variant="caption"><strong>{getDuration(props.workExperienceData.start, props.workExperienceData.end)}</strong>, {getYear(props.workExperienceData.start)} - {getYear(props.workExperienceData.end)}</Typography>
+                        <Typography block variant="heading3">{props.workExperienceData.position}, {props.workExperienceData.company}</Typography>
+                        <Typography block variant="body2">{props.workExperienceData.caption}</Typography>
                     </Box>
                 </Box>
                 <Box center color={Style.Color.Light50}>
@@ -32,11 +33,9 @@ export const WorkExperienceCard = (props: Props) => {
             <Collapse isOpened={isExpanded}>
                 <Box paddingTop={Style.Spacing.L} paddingLeft={isMobile ? '12px' : '120px'}>
                     <BulletList>
-                        <Typography>Kuy rai ka</Typography>
-                        <Typography>Kuy rai</Typography>
-                        <Typography>Kuy rai</Typography>
-                        <Typography>Kuy rai</Typography>
-                        <Typography>Kuy rai Kuy rai Kuy rai Kuy rai Kuy rai Kuy rai Kuy rai Kuy rai Kuy rai Kuy rai Kuy rai Kuy rai Kuy rai Kuy rai Kuy rai Kuy rai Kuy rai Kuy rai Kuy rai Kuy rai Kuy rai Kuy rai Kuy rai Kuy rai Kuy rai Kuy rai Kuy rai Kuy rai Kuy rai Kuy rai Kuy rai Kuy rai Kuy rai Kuy rai </Typography>
+                        {props.workExperienceData.bulletDescriptions.map((text, index) => (
+                            <Typography>{text}</Typography>
+                        ))}
                     </BulletList>
                 </Box>
             </Collapse>

@@ -10,6 +10,8 @@ import { Content } from "../constants/content"
 import { Parameter } from "../constants/parameter"
 import { ResponsiveContext } from "../contexts/responsive"
 import { activityImages } from "../data/activities"
+import { educations } from "../data/educations"
+import { workExperiences } from "../data/workExperiences"
 import { useNavigation } from "../hooks/useNavigation"
 import { Style } from "../styles/style"
 
@@ -24,12 +26,12 @@ export const About = () => {
             <Stack vertical gap={Style.Spacing.XXL}>
                 <Section title={Content.About.WorkExperienceHeading}>
                     <Timeline visibleCount={3} lined={!isMobile}>
-                        {[1, 1, 1, 1, 1, 1, 1].map(() => <WorkExperienceCard />)}
+                        {workExperiences.map((data, index) => <WorkExperienceCard workExperienceData={data} />)}
                     </Timeline>
                 </Section>
                 <Section title={Content.About.EducationHeading}>
                     <Timeline visibleCount={3} lined={!isMobile}>
-                        {[1].map(() => <EducationCard />)}
+                        {educations.map((data, index) => <EducationCard educationData={data} />)}
                     </Timeline>
                 </Section>
                 <Section title={Content.About.ActivitiesHeading}>
