@@ -8,7 +8,7 @@ export const OverlayBackground = styled.div<{isOpened: boolean, unsetZIndex?: bo
     width: 100%;
     height: 100%;
     transition: all 1s;
-    background: ${props => props.isOpened ? '#00000099' : '#00000000'};
+    background: ${props => props.isOpened ? '#000000e0' : '#00000000'};
     pointer-events: ${props => props.isOpened ? 'all' : 'none'};
     z-index: ${props => !props.unsetZIndex && 1000};
 `;

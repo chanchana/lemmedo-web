@@ -41,7 +41,7 @@ export const ModalMinimizeButton = (props: Props) => (
         </MobileButton>
     </MobileButtonContainer>
     :
-    <Box position="absolute" opacity={props.opened ? 1 : 0} transition="all ease 0.5s" top={Style.Spacing.XXL} right={Style.Spacing.XXL} >
+    <Box position="absolute" opacity={props.opened ? 1 : 0} transition="all ease 0.5s" top={Style.Spacing.XXL} right={Style.Spacing.XXL}>
         <Button onClick={props.onClick} icon={Icon.DownLeftAndUpRightToCenter} />
     </Box>
 )
