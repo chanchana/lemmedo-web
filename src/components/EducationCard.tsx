@@ -6,16 +6,18 @@ import { Icon } from "../styles/icons"
 import React from "react"
 import { Collapse } from 'react-collapse'
 import KMUTT from '../assets/logos/kmutt.png'
+import { ResponsiveContext } from "../contexts/responsive"
 
 interface Props {
     // educationData: EducationData;
 }
 
 export const EducationCard = (props: Props) => {
+    const { isMobile } = React.useContext(ResponsiveContext)
     return (
         <Card heightFitContent>
             <Grid templateColumn="auto 1fr auto" gap={Style.Spacing.L}>
-                <Logo image={KMUTT} />
+                <Logo image={KMUTT} mobile={isMobile} />
                 <Box center justifyContent="start">
                     <Box>
                         <Typography block variant="body3">2017 - 2021</Typography>

@@ -8,6 +8,7 @@ import styled from "styled-components";
 interface Props {
     children: React.ReactNode;
     visibleCount?: number;
+    lined?: boolean;
 }
 
 const indentWidth = '32px'
@@ -32,22 +33,22 @@ export const Timeline = (props: Props) => {
         <React.Fragment>
             <Box position="relative">
                 {React.Children.map(props.children, (child: React.ReactNode, index: number) => (
-                    <Box marginLeft={isExpandable ? '4px' : 0}>
+                    <Box marginLeft={isExpandable && props.lined ? '4px' : 0}>
                         <Collapse isOpened={!(props.visibleCount && !isExpanded && index > props.visibleCount - 1)}>
                             <StyledTimelineItem>
-                                <Box center width={indentWidth} alignItems="baseline" paddingTop={Style.Spacing.L}>
+                                {props.lined && <Box center width={indentWidth} alignItems="baseline" paddingTop={Style.Spacing.L}>
                                     <Box width={dotSize} height={dotSize} borderRadius="50%" background={lineColor} outline={`4px solid ${lineStrokeColor}`} />
-                                </Box>
-                                <Box flexGrow={1} marginLeft={Style.Spacing.M}>
+                                </Box>}
+                                <Box flexGrow={1} marginLeft={props.lined ? Style.Spacing.M : undefined}>
                                     {child}
                                 </Box>
                             </StyledTimelineItem>
                         </Collapse>
                     </Box>
                 ))}
-                <Box displayFlex height="100%" width={indentWidth} position="absolute" top={0} left={0}>
+                {props.lined && <Box displayFlex height="100%" width={indentWidth} position="absolute" top={0} left={0}>
                     <Box width="8px" background={lineColor} margin="8px auto" borderRadius={lineRadius} zIndex={-1}/>
-                </Box>
+                </Box>}
             </Box>
             {isExpandable && <Box center marginTop={Style.Spacing.L}>
                 <ExpandButton isExpanded={isExpanded} setIsExpanded={setIsExpanded} />

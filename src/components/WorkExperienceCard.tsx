@@ -5,6 +5,7 @@ import Agodee from "../assets/logos/agodee.jpeg"
 import { Icon } from "../styles/icons"
 import React from "react"
 import { Collapse } from 'react-collapse'
+import { ResponsiveContext } from "../contexts/responsive"
 
 interface Props {
     // workExperienceData: WorkExperienceData;
@@ -12,10 +13,11 @@ interface Props {
 
 export const WorkExperienceCard = (props: Props) => {
     const [isExpanded, setIsExpanded] = React.useState(false)
+    const { isMobile } = React.useContext(ResponsiveContext)
     return (
         <Card interactive heightFitContent onClick={() => setIsExpanded(!isExpanded)}>
             <Grid templateColumn="auto 1fr auto" gap={Style.Spacing.L}>
-                <Logo image={Agodee} />
+                <Logo image={Agodee} mobile={isMobile} />
                 <Box center justifyContent="start">
                     <Box>
                         <Typography block variant="caption"><strong>69 Months</strong>, 2021 - Present</Typography>
@@ -28,7 +30,7 @@ export const WorkExperienceCard = (props: Props) => {
                 </Box>
             </Grid>
             <Collapse isOpened={isExpanded}>
-                <Box paddingTop={Style.Spacing.L} paddingLeft="120px">
+                <Box paddingTop={Style.Spacing.L} paddingLeft={isMobile ? '12px' : '120px'}>
                     <BulletList>
                         <Typography>Kuy rai ka</Typography>
                         <Typography>Kuy rai</Typography>
