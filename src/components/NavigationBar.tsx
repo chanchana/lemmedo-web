@@ -14,7 +14,7 @@ const scrollThreshold = 300;
 
 const MobileNavigationItem = styled.div`
     height: 48px;
-    ${Style.Typography.Desktop.Button1};
+    ${Style.Typography.Button1};
     line-height: 48px;
     cursor: pointer;
     color: ${Style.Color.Light100};

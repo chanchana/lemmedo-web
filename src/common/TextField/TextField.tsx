@@ -12,7 +12,7 @@ const StyledInput = styled.input`
     background: none;
     border: none;
     color: ${Style.Color.Light100};
-    ${Style.Typography.Desktop.Heading3};
+    ${Style.Typography.Heading3};
     font-family: ${Style.Typography.FontFamily};
     background: ${Style.Color.Dark25};
     border-radius: ${Style.Css.BorderRadius};

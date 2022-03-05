@@ -4,15 +4,14 @@ import { MediaQuery } from './utils';
 
 export const GlobalStyle = createGlobalStyle`
     html {
-        /* overflow: scroll; */
         overflow-x: hidden;
     }
     ::-webkit-scrollbar {
         display: none;
-        width: 0;  /* Remove scrollbar space */
-        background: transparent;  /* Optional: just make scrollbar invisible */
+        width: 0;
+        background: transparent;
     }
-    /* Optional: show position indicator in red */
+
     ::-webkit-scrollbar-thumb {
         display: none;
         background: ${Style.Color.Dark25};

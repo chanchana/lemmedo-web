@@ -14,7 +14,6 @@ const StyledTextArea = styled.textarea`
     background: none;
     border: none;
     color: ${Style.Color.Light100};
-    /* ${Style.Typography.Desktop.Heading3}; */
     min-height: 120px;
     font-size: 1.1rem;
     font-weight: normal;
