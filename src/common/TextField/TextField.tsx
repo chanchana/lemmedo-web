@@ -22,13 +22,13 @@ const StyledInput = styled.input`
     display: block;
     flex-grow: 1;
 
-    &:hover, &:focus {
+    &:hover, &:focus, &:active {
         outline: none;
         box-shadow: ${Style.Css.NormalOutlineBoxShadow},${Style.Css.BoxShadow.M};
         background: ${Style.FilteredColor.Dark25White};
     }
 
-    &:focus {
+    &:focus, &:active {
         box-shadow: ${Style.Css.HoverOutlineBoxShadow},${Style.Css.BoxShadow.M};
     }
 
