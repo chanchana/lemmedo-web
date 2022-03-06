@@ -5,7 +5,7 @@ import { Icon } from "../styles/icons"
 import React from "react"
 import { Collapse } from 'react-collapse'
 import { ResponsiveContext } from "../contexts/responsive"
-import { getDuration, getYear, WorkExperienceData } from "../data/workExperiences"
+import { getDuration, getYearDuration, WorkExperienceData } from "../data/workExperiences"
 
 interface Props {
     workExperienceData: WorkExperienceData;
@@ -20,7 +20,7 @@ export const WorkExperienceCard = (props: Props) => {
                 <Logo image={props.workExperienceData.logoSrc} mobile={isMobile} />
                 <Box center justifyContent="start">
                     <Box>
-                        <Typography block variant="caption"><strong>{getDuration(props.workExperienceData.start, props.workExperienceData.end)}</strong>, {getYear(props.workExperienceData.start)} - {getYear(props.workExperienceData.end)}</Typography>
+                        <Typography block variant="caption"><strong>{getDuration(props.workExperienceData.start, props.workExperienceData.end)}</strong>, {getYearDuration(props.workExperienceData.start, props.workExperienceData.end)}</Typography>
                         <Typography block variant="heading3">{props.workExperienceData.position}, {props.workExperienceData.company}</Typography>
                         <Typography block variant="body2">{props.workExperienceData.caption}</Typography>
                     </Box>
