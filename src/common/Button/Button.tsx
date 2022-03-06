@@ -17,6 +17,27 @@ interface Props {
     onClick?: () => void;
 }
 
+const filterCss = `
+position: absolute;
+width: 100%;
+height: 100%;
+opacity: 0;
+top: 0;
+left: 0;
+transition: all ease 0.5s;
+border-radius: ${Style.Css.BorderRadius};
+`;
+
+export const WhiteFilter = styled.div`
+    ${filterCss}
+    background: #ffffff30;
+`
+
+export const BlackFilter = styled.div`
+    ${filterCss}
+    background: #00000030;
+`
+
 const StyledDiv = styled.div<Props>`
     position: relative;
     cursor: pointer;
@@ -26,21 +47,29 @@ const StyledDiv = styled.div<Props>`
     background: ${props => props.backgroundColor || (!props.noFilled && Style.Color.Dark25)};
     box-shadow: ${props => (!props.noFilled && !props.noShadow) && Style.Css.BoxShadow.M};
     text-shadow: ${props => !props.noFilled && props.backgroundColor && '0px 0px 24px rgb(0 0 0 / 50%)'};
-    filter: brightness(100%);
     transition: all ease 0.5s;
     pointer-events: all;
 
     &:hover {
         box-shadow: ${props => (!props.noFilled && !props.noShadow) && Style.Css.BoxShadow.L};
         background: ${props => props.noFilled && Style.Color.Dark100};
-        filter: brightness(150%);
+        ${WhiteFilter} {
+            opacity: 1;
+        }
     }
 
     &:active {
         background: ${props => props.noFilled && Style.Color.Dark100};
         box-shadow: 'none';
-        filter: brightness(80%);
         transition: all ease 0s;
+        ${WhiteFilter} {
+            transition: all ease 0s;
+            opacity: 0;
+        }
+        ${BlackFilter} {
+            transition: all ease 0s;
+            opacity: 1;
+        }
     }
 `;
 
@@ -62,6 +91,8 @@ export const Button = (props: Props) => {
                     {props.icon && <Box display="inline-block" marginRight={props.children ? Style.Spacing.S : 0}>{props.icon}</Box>}
                     {props.children}
                 </Typography>
+                <WhiteFilter />
+                <BlackFilter />
             </StyledDiv>
         </div>
     );

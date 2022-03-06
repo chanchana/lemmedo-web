@@ -20,12 +20,11 @@ const StyledInput = styled.input`
     transition: all ease 0.5s;
     display: block;
     flex-grow: 1;
-    filter: brightness(100%);
 
     &:hover, &:focus {
-        filter: brightness(120%);
         outline: none;
         box-shadow: ${Style.Css.NormalOutlineBoxShadow},${Style.Css.BoxShadow.M};
+        background: ${Style.FilteredColor.Dark25White};
     }
 
     &:focus {

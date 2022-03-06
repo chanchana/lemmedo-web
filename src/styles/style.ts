@@ -17,6 +17,9 @@ export const Style = {
         Green: '#00E24A',
         Orange: '#F8781D',
     },
+    FilteredColor: {
+        Dark25White: '#4f477a',
+    },
     Typography: {
         Heading1: 'font-style: normal;font-weight: bold;font-size: 2.375rem;line-height: 110%;',
         Heading2: 'font-style: normal;font-weight: bold;font-size: 1.5rem;line-height: 150%;',
