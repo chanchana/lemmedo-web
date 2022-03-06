@@ -8,6 +8,7 @@ interface Props {
 }
 
 const StyledInput = styled.input`
+    margin: 0;
     padding: 0;
     background: none;
     border: none;

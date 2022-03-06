@@ -10,6 +10,7 @@ interface Props {
 }
 
 const StyledTextArea = styled.textarea`
+    margin: 0;
     padding: 0;
     background: none;
     border: none;
