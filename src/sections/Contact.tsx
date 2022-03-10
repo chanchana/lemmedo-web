@@ -19,7 +19,7 @@ export const Contact = () => {
     
     return (
         <div ref={sectionRef}>
-            <SectionHeading largeTitle title={Content.Contact.Title} title2={Content.Contact.Title2} subtitle={Content.Services.Subtitle} />
+            <SectionHeading largeTitle title={Content.Contact.Title} title2={Content.Contact.Title2} subtitle={Content.Contact.Subtitle} />
             <Grid columns={isMobile ? 1 : 2} gap={Style.Spacing.L}>
                 <Card heightFitContent>
                     <ContactForm />

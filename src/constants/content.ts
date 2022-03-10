@@ -10,29 +10,29 @@ export const Content = {
         Heading1Gradient: 'ideas',
         Heading2: 'come alive',
         Heading3: 'with',
-        Caption: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium a mi et bibendum. Pellentesque ac.',
+        Caption: 'I’m a full-package developer who’s ready to make your dream come true. Let’s set off on our journey together!',
     },
 
     Services: {
-        Title: 'What can I do for you',
-        Subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium a mi et bibendum. Pellentesque ac.',
+        Title: 'What can I do for you?',
+        Subtitle: 'My experience fields are not limited as listed here. I love to explore new ideas and knowledge, which expands my development possibilities.',
         Data: serviceContents,
     },
 
     Showcases: {
         Title: 'Showcases',
-        Subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium a mi et bibendum. Pellentesque ac.',
+        Subtitle: 'I proudly present my previous highlighted projects. Learn more about each project by clicking on it.',
     },
 
     Reviews: {
         Title: 'Reviews',
-        Subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium a mi et bibendum. Pellentesque ac.',
+        Subtitle: 'Hear what other people say about me, from my lovely teammates, advisors, and clients. They are really amazing people.',
         Data: reviews,
     },
 
     About: {
         Title: 'About Me',
-        Subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium a mi et bibendum. Pellentesque ac.',
+        Subtitle: 'Briefly introduction about my experience in the software development field. Check out my previously attended activities.',
         EducationHeading: 'Educations',
         WorkExperienceHeading: 'Work Experiences',
         ActivitiesHeading: 'Activities and Achievements',
@@ -41,14 +41,14 @@ export const Content = {
     Contact: {
         Title: 'Ready to ignite your dream?',
         Title2: 'Let\'s get in touch',
+        Subtitle: 'We can have some casual small talk together. Feel free to reach out to me via any channel. I\'m Looking forward to hearing from you.',
         Contact: 'Contact',
         BasedIn: 'Based in',
         Social: 'Social',
-        Subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium a mi et bibendum. Pellentesque ac.',
     },
 
     Footer: {
-        Description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium a mi et bibendum. Pellentesque ac.',
+        Description: 'My portfolio website tells a story about my experiences and projects. Made with TypeScript, React, and love. :)',
         Remark: `Design and develop by ${mainContact.name}`,
         Copyright: '© 2021, All Rights Reserved',
         SiteMap: 'Site Map',
