@@ -10,7 +10,7 @@ export const Content = {
         Heading1Gradient: 'ideas',
         Heading2: 'come alive',
         Heading3: 'with',
-        Caption: 'I’m a full-package developer who’s ready to make your dream come true. Let’s set off on our journey together!',
+        Caption: 'I’m a full stack developer who’s ready to make your dream come true. Let’s set off on our journey together!',
     },
 
     Services: {
