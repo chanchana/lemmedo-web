@@ -1,4 +1,4 @@
-import KMUTT from '../assets/logos/kmutt.png'
+import KMUTTSrc from '../assets/logos/KMUTT.png'
 
 export interface EducationData {
     duration: string;
@@ -12,7 +12,7 @@ const fake = {
     duration: '2017 - 2021',
     program: 'Computer Engineering (International Program)',
     institute: 'King Mongkut\'s University of Technology Thonburi',
-    logoSrc: KMUTT,
+    logoSrc: KMUTTSrc,
     caption: 'GPAX: 500 out of 4.00',
 }
 

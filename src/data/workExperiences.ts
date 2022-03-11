@@ -1,4 +1,4 @@
-import Agodee from "../assets/logos/agodee.jpeg"
+import AgodaSrc from "../assets/logos/Agoda.png"
 
 export interface WorkExperienceData {
     position: string;
@@ -13,7 +13,7 @@ export interface WorkExperienceData {
 const fake = {
     position: 'Software Engineer',
     company: 'Agodee',
-    logoSrc: Agodee,
+    logoSrc: AgodaSrc,
     start: 'May 1, 2021',
     end: null,
     caption: 'Maintain frontend side projects which use TypeScript, React, and C# for the web server.',
@@ -28,7 +28,7 @@ const fake = {
 const fake2 = {
     position: 'Software Engineer',
     company: 'Agodee2',
-    logoSrc: Agodee,
+    logoSrc: AgodaSrc,
     start: 'May 1, 2021',
     end: 'June 30, 2021',
     caption: 'Maintain frontend side projects which use TypeScript, React, and C# for the web server.',
@@ -43,7 +43,7 @@ const fake2 = {
 const fake3 = {
     position: 'Software Engineer',
     company: 'Agodee3',
-    logoSrc: Agodee,
+    logoSrc: AgodaSrc,
     start: 'May 1, 2020',
     end: 'August 30, 2021',
     caption: 'Maintain frontend side projects which use TypeScript, React, and C# for the web server.',
