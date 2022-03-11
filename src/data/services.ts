@@ -10,32 +10,32 @@ interface ServiceContent {
 export const serviceContents: ServiceContent[] = [
     {
         title: 'Web Development',
-        caption: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium a mi ',
+        caption: 'Full-hosted service and website development, responsive website.',
         icon: getIconWithColor(allCategory[Category.Web].icon, allCategory[Category.Web].color),
     },
     {
         title: 'App Development',
-        caption: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium a mi ',
+        caption: 'iOS and Android applications, Desktop applications development.',
         icon: getIconWithColor(allCategory[Category.App].icon, allCategory[Category.App].color),
     },
     {
         title: 'Data Science & AI',
-        caption: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium a mi ',
+        caption: 'Data analysis, visualization, machine learning model construction.',
         icon: getIconWithColor(allCategory[Category.Ai].icon, allCategory[Category.Ai].color),
     },
     {
         title: 'Design',
-        caption: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium a mi ',
+        caption: 'Graphic design, logo design, poster design, UX/UI design.',
         icon: getIconWithColor(allCategory[Category.Design].icon, allCategory[Category.Design].color),
     },
     {
-        title: 'Task Automation',
-        caption: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium a mi ',
+        title: 'Automation',
+        caption: 'CI/CD integration, infrastructure orchestration, system automation.',
         icon: getIconWithColor(allCategory[Category.Automation].icon, allCategory[Category.Automation].color),
     },
     {
         title: 'Research & Development',
-        caption: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium a mi ',
+        caption: 'Technology and innovation research, product improvement.',
         icon: getIconWithColor(allCategory[Category.Research].icon, allCategory[Category.Research].color),
     },
 ]
