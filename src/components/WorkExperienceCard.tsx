@@ -30,7 +30,7 @@ export const WorkExperienceCard = (props: Props) => {
                 </Box>
             </Grid>
             <Collapse isOpened={isExpanded}>
-                <Box paddingTop={Style.Spacing.L} paddingLeft={isMobile ? '12px' : '120px'}>
+                <Box paddingTop={Style.Spacing.L} paddingLeft={isMobile ? '16px' : '120px'}>
                     <BulletList>
                         {props.workExperienceData.bulletDescriptions.map((text, index) => (
                             <Typography key={`work-bullet-${index}`}>{text}</Typography>
