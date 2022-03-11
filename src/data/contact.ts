@@ -9,37 +9,68 @@ export interface ContactData {
     url: string;
 }
 
-const fake = {
-    name: 'Email',
-    icon: Icon.Book,
-    label: 'northja@get.com',
-    url: 'https://www.agoda.com',
-    tooltip: 'test',
-    iconColor: '#3b5998',
-}
-
-const socialfake = {
-    name: 'Fakebook',
-    icon: Icon.FacebookF,
-    label: 'northja@get.com',
-    url: 'https://www.agoda.com',
-    tooltip: 'test',
-    iconColor: '#3b5998',
-}
-
 export const locationContact = 'Bangkok, Thailand'
 
 export const mainContact = {
     name: 'Chanchana Wicha',
-    phone: '+66 88 261 0421',
     email: 'wic.chanchana@gmail.com',
-    location: 'Bangkok, Thailand, 10110',
+    location: `${locationContact}, 10110`,
 }
 
 export const contacts: ContactData[] = [
-    fake, fake, fake
+    {
+        name: 'Email',
+        icon: Icon.Envelope,
+        label: mainContact.email,
+        url: `mailto:${mainContact.email}`,
+    },
+    {
+        name: 'iMessage',
+        icon: Icon.Comment,
+        label: 'north1602@gmail.com',
+        url: 'sms:north1602@gmail.com',
+    },
+    {
+        name: 'Skype',
+        icon: Icon.Skype,
+        label: mainContact.name,
+        url: 'https://join.skype.com/invite/sh0rA7w7CClg',
+    },
+    {
+        name: 'Whatsapp',
+        icon: Icon.Whatsapp,
+        label: 'Whatsapp',
+        url: 'https://api.whatsapp.com/qr/W4AW6BSYGCSWH1?autoload=1&app_absent=0',
+    },
 ]
 
 export const socialContacts: ContactData[] = [
-    socialfake, socialfake, socialfake
+    {
+        name: 'LinkedIn',
+        icon: Icon.Linkedin,
+        label: '',
+        url: 'https://www.linkedin.com/in/chanchanawicha/',
+        iconColor: '#158ec8',
+    },
+    {
+        name: 'Github',
+        icon: Icon.Github,
+        label: '',
+        url: 'https://www.github.com/chanchana',
+        iconColor: '#bb27d0',
+    },
+    {
+        name: 'Line',
+        icon: Icon.Line,
+        label: '',
+        url: 'https://line.me/ti/p/sDjgNvcNf3',
+        iconColor: '#00B900',
+    },
+    {
+        name: 'Instagram',
+        icon: Icon.Instagram,
+        label: '',
+        url: 'https://www.instagram.com/nr.th/',
+        iconColor: '#c21362',
+    },
 ]

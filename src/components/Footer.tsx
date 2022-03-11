@@ -28,7 +28,6 @@ export const Footer = () => {
                 <Typography variant="heading3" color={Style.Color.Light50}>{Content.Contact.Contact}</Typography>
                 <Typography block marginTop={Style.Spacing.S} variant="body2" color={Style.Color.Light25}>{mainContact.name}</Typography>
                 <Typography block variant="body2" color={Style.Color.Light25}>{mainContact.location}</Typography>
-                <Typography block variant="body2" color={Style.Color.Light25}>{mainContact.phone}</Typography>
                 <Typography block variant="body2" color={Style.Color.Light25}>{mainContact.email}</Typography>
             </Box>
             <Box>

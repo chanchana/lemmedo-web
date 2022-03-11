@@ -11,7 +11,7 @@ interface Props {
 export const ExternalLink = (props: Props) => (
     <Link url={props.url}>
         <Typography interactive variant="body1">
-            <Box display="inline" marginRight={Style.Spacing.S}>
+            <Box display="inline-block" width="1rem" marginRight={Style.Spacing.S}>
                 {props.icon || Icon.UpRightFromSquare}
             </Box>
             {props.text}

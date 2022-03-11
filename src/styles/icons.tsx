@@ -20,9 +20,16 @@ export const Icon = {
     DownLeftAndUpRightToCenter: <FontAwesomeIcon icon={solid('down-left-and-up-right-to-center')} />,
     UpRightFromSquare: <FontAwesomeIcon icon={solid('up-right-from-square')} />,
     Bars: <FontAwesomeIcon icon={solid('bars')} />,
+    Envelope: <FontAwesomeIcon icon={solid('envelope')} />,
+    Comment: <FontAwesomeIcon icon={solid('comment')} />,
 
     // Brands
-    FacebookF: <FontAwesomeIcon icon={brands('facebook-f')} />,
+    Linkedin: <FontAwesomeIcon icon={brands('linkedin')} />,
+    Github: <FontAwesomeIcon icon={brands('github')} />,
+    Line: <FontAwesomeIcon icon={brands('line')} />,
+    Instagram: <FontAwesomeIcon icon={brands('instagram')} />,
+    Skype: <FontAwesomeIcon icon={brands('skype')} />,
+    Whatsapp: <FontAwesomeIcon icon={brands('whatsapp-square')} />,
 }
 
 export const getIconWithColor = (icon: React.ReactNode, color?: string) => (
