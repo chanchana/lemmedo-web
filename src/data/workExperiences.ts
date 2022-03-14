@@ -93,7 +93,7 @@ export const getDuration = (start: string, end: string | null): string => {
     if (months < 12) {
         return `${months} Months`;
     } else {
-        return `${(months/12).toFixed(1).replace(/\.0$/, '')} Year${months/12 == 1 ? '' : 's'}`;
+        return `${(months/12).toFixed(1).replace(/\.0$/, '')} Year${months/12 === 1 ? '' : 's'}`;
     }
 }
 
