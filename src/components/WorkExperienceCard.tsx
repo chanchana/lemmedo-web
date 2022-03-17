@@ -22,7 +22,7 @@ export const WorkExperienceCard = (props: Props) => {
                     <Box>
                         <Typography block variant="caption"><strong>{getDuration(props.workExperienceData.start, props.workExperienceData.end)}</strong>, {getYearDuration(props.workExperienceData.start, props.workExperienceData.end)}</Typography>
                         <Typography block variant="heading3">{props.workExperienceData.position}, {props.workExperienceData.company}</Typography>
-                        <Typography block variant="body2">{props.workExperienceData.caption}</Typography>
+                        {!isMobile && <Typography block variant="body2">{props.workExperienceData.caption}</Typography>}
                     </Box>
                 </Box>
                 <Box center color={Style.Color.Light50}>
