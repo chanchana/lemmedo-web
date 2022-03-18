@@ -1,4 +1,3 @@
-import SampleImage from "../assets/showcases/sample.jpg";
 import BonderBoardSrc from "../assets/projects/bonder_board.png";
 import FostSrc from "../assets/projects/fost.png";
 import MockMobileBankSrc from "../assets/projects/mock_mobile_bank.png";
@@ -8,7 +7,6 @@ import RestaurantRecommendationSrc from "../assets/projects/restaurant_recommend
 import RushSrc from "../assets/projects/rush.png";
 import TaxiSrc from "../assets/projects/taxi.png";
 import ValdbSrc from "../assets/projects/valdb.png";
-import { fakeImage } from "./activities";
 import { allCategory, Category } from "./categories";
 import { Image } from "./image";
 import { people, People } from "./people";
