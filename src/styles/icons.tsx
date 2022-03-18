@@ -22,6 +22,7 @@ export const Icon = {
     Bars: <FontAwesomeIcon icon={solid('bars')} />,
     Envelope: <FontAwesomeIcon icon={solid('envelope')} />,
     Comment: <FontAwesomeIcon icon={solid('comment')} />,
+    Gamepad: <FontAwesomeIcon icon={solid('gamepad')} />,
 
     // Brands
     Linkedin: <FontAwesomeIcon icon={brands('linkedin')} />,

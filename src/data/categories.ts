@@ -19,6 +19,7 @@ export enum Category {
     Design,
     Automation,
     Research,
+    Game,
 }
 
 export const allCategory: { [key: number]: CategoryData } = {
@@ -82,6 +83,14 @@ export const allCategory: { [key: number]: CategoryData } = {
         icon: Icon.Book,
         color: Style.Color.Yellow,
         category: Category.Research,
+    },
+
+    [Category.Game]: {
+        label: 'game',
+        name: 'Game',
+        icon: Icon.Gamepad,
+        color: Style.Color.Red,
+        category: Category.Game,
     },
 }
 
