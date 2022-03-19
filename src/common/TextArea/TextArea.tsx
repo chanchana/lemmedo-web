@@ -7,6 +7,8 @@ interface Props {
     label?: string;
     placeholder?: string;
     rows?: number;
+    register?: any;
+    name?: string;
 }
 
 const StyledTextArea = styled.textarea`
@@ -78,7 +80,7 @@ export const TextArea = (props: Props) => {
     return (
         <StyledDiv>
             <Box display="flex">
-                <StyledTextArea ref={textAreaRef} rows={props.rows || 4} placeholder={props.placeholder} />
+                <StyledTextArea ref={textAreaRef} rows={props.rows || 4} placeholder={props.placeholder} {...props.register(props.name)} />
             </Box>
             {props.label && <StyledLabel scrolled={scrolled}><Typography block variant="label">{props.label}</Typography></StyledLabel>}
         </StyledDiv>

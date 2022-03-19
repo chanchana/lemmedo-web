@@ -5,6 +5,8 @@ import { Style } from "../../styles/style";
 interface Props {
     label?: string;
     placeholder?: string;
+    register?: any;
+    name?: string;
 }
 
 const StyledInput = styled.input`
@@ -49,7 +51,7 @@ export const TextField = (props: Props) => {
     return (
         <Box position="relative">
             <Box display="flex">
-                <StyledInput placeholder={props.placeholder} />
+                <StyledInput placeholder={props.placeholder} {...props.register(props.name)} />
             </Box>
             {props.label && <StyledLabel><Typography block variant="label">{props.label}</Typography></StyledLabel>}
         </Box>

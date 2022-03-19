@@ -69,5 +69,12 @@ export const Content = {
         ShowMore: 'More',
         ShowLess: 'Less',
         SendMessage: 'Send Message',
+        SendCompleteMessage: 'Thank you for your interest! We are one step closer. I will contact you soon.'
     },
+
+    Error: {
+        RequiredField: 'These following fields are required: ',
+        EmailValidation: 'Email is invalid. Please check you email again.',
+        InternalError: 'Internal error. I\'m going to fix this issue as soon as possible',
+    }
 }

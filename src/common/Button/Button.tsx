@@ -14,6 +14,7 @@ interface Props {
     noShadow?: boolean;
     style?: CSSProperties;
     block?: boolean;
+    type?: "button" | "submit" | "reset";
     onClick?: () => void;
 }
 
@@ -73,6 +74,15 @@ const StyledDiv = styled.div<Props>`
     }
 `;
 
+const StyledButton = styled.button`
+    padding: 0;
+    margin: 0;
+    background: none;
+    outline: none;
+    border: none;
+    appearance: none;
+`
+
 export const Button = (props: Props) => {
     const variant = props.variant || (props.small && 'small') || (props.large && 'large') || 'normal';
     const styleProps: Props = {
@@ -85,15 +95,17 @@ export const Button = (props: Props) => {
         if (props.onClick) props.onClick();
     }
     return (
-        <div onClick={handleClick}>
-            <StyledDiv {...styleProps}>
-                <Typography variant={typographyVariant} color={props.color || Style.Color.Light100}>
-                    {props.icon && <Box display="inline-block" marginRight={props.children ? Style.Spacing.S : 0}>{props.icon}</Box>}
-                    {props.children}
-                </Typography>
-                <WhiteFilter />
-                <BlackFilter />
-            </StyledDiv>
-        </div>
+        <StyledButton type={props.type}>
+            <div onClick={handleClick}>
+                <StyledDiv {...styleProps}>
+                    <Typography variant={typographyVariant} color={props.color || Style.Color.Light100}>
+                        {props.icon && <Box display="inline-block" marginRight={props.children ? Style.Spacing.S : 0}>{props.icon}</Box>}
+                        {props.children}
+                    </Typography>
+                    <WhiteFilter />
+                    <BlackFilter />
+                </StyledDiv>
+            </div>
+        </StyledButton>
     );
 }

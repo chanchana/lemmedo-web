@@ -32,6 +32,15 @@ export const GlobalStyle = createGlobalStyle`
         100% { background-position: 100%; }
     }
 
+    @keyframes spin {
+        from {
+            transform:rotate(0deg);
+        }
+        to {
+            transform:rotate(360deg);
+        }
+    }
+
     // Collapse animation
     .ReactCollapse--collapse {
         transition: height 500ms ease;
