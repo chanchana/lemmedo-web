@@ -13,7 +13,6 @@ interface Props {
     icon?: React.ReactNode;
     noShadow?: boolean;
     style?: CSSProperties;
-    block?: boolean;
     type?: "button" | "submit" | "reset";
     onClick?: () => void;
 }
@@ -42,14 +41,15 @@ export const BlackFilter = styled.div`
 const StyledDiv = styled.div<Props>`
     position: relative;
     cursor: pointer;
-    display: ${props => props.block ? 'block' : 'inline-block'};
-    padding: ${props => props.variant === 'large' ? '16px 28px' : props.variant === 'normal' ? '12px 24px' : '4px 12px'};
+    display: flex;
+    padding: ${props => props.variant === 'large' ? '1.25rem 2rem' : props.variant === 'normal' ? '1rem 1.75rem' : '0.5rem 1rem'};
     border-radius: ${Style.Css.BorderRadius};
     background: ${props => props.backgroundColor || (!props.noFilled && Style.Color.Dark25)};
     box-shadow: ${props => (!props.noFilled && !props.noShadow) && Style.Css.BoxShadow.M};
     text-shadow: ${props => !props.noFilled && props.backgroundColor && '0px 0px 24px rgb(0 0 0 / 50%)'};
     transition: all ease 0.5s;
     pointer-events: all;
+    font-family: ${Style.Typography.FontFamily};
 
     &:hover {
         box-shadow: ${props => (!props.noFilled && !props.noShadow) && Style.Css.BoxShadow.L};
