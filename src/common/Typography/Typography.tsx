@@ -18,6 +18,7 @@ interface Props {
     block?: boolean;
     interactive?: boolean;
     fullWidth?: boolean;
+    maxLines?: number;
     onClick?: () => void;
 }
 
@@ -35,6 +36,12 @@ const StyledDiv = Styled.div<Props>`
         &:hover {
             color: ${Style.Color.Purple}
         }
+    `}
+    ${props => props.maxLines && `
+        display: -webkit-box;
+        -webkit-line-clamp: ${props.maxLines};
+        -webkit-box-orient: vertical; 
+        overflow: hidden;
     `}
 `
 

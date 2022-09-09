@@ -23,13 +23,13 @@ export const Style = {
     Typography: {
         Heading1: 'font-style: normal;font-weight: bold;font-size: 2.375rem;line-height: 110%;',
         Heading2: 'font-style: normal;font-weight: bold;font-size: 1.5rem;line-height: 150%;',
-        Heading3: 'font-style: normal;font-weight: bold;font-size: 1.125rem;line-height: 150%;',
+        Heading3: 'font-style: normal;font-weight: bold;font-size: 1.3rem;line-height: 150%;',
         Heading4: 'font-style: normal;font-weight: bold;font-size: 1rem;line-height: 150%;',
         Caption: 'font-style: normal;font-weight: normal;font-size: 1rem;line-height: 150%;',
-        Body1: 'font-style: normal;font-weight: normal;font-size: 1rem;line-height: 150%;',
-        Body2: 'font-style: normal;font-weight: normal;font-size: 0.875rem;line-height: 140%;',
-        Body3: 'font-style: normal;font-weight: normal;font-size: 0.75rem;line-height: 130%;',
-        Label: 'font-style: normal;font-weight: bold;font-size: 0.875rem;line-height: 110%;',
+        Body1: 'font-style: normal;font-weight: normal;font-size: 1.125rem;line-height: 150%;',
+        Body2: 'font-style: normal;font-weight: normal;font-size: 1rem;line-height: 140%;',
+        Body3: 'font-style: normal;font-weight: normal;font-size: 1rem;line-height: 130%;',
+        Label: 'font-style: normal;font-weight: bold;font-size: 1rem;line-height: 110%;',
         Button1: 'font-style: normal;font-weight: bold;font-size: 1.125rem;line-height: 110%;',
         Button2: 'font-style: normal;font-weight: bold;font-size: 1rem;line-height: 110%;',
         

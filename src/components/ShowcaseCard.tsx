@@ -101,7 +101,7 @@ export const ShowcaseCard = (props: Props) => {
     }, [isOpened])
 
     const renderCategories = () => (
-        <Grid inline marginTop={Style.Spacing.XS} gap={Style.Spacing.S}>
+        <Grid inline marginTop={Style.Spacing.M} gap={Style.Spacing.S}>
             {props.showcaseData.categories.map((value, index) =>
                 <Button key={`category-${index}`} small icon={allCategory[value].icon} backgroundColor={allCategory[value].color}>{allCategory[value].name}</Button>
             )}
@@ -109,7 +109,7 @@ export const ShowcaseCard = (props: Props) => {
     );
 
     const renderCaption = () => (
-        <Typography block variant="body2" marginTop={Style.Spacing.L}>{props.showcaseData.caption}</Typography>
+        <Typography block variant="body2" marginTop={Style.Spacing.L} maxLines={3}>{props.showcaseData.caption}</Typography>
     );
 
     const renderDetailDescription = () => (
