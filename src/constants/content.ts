@@ -50,7 +50,7 @@ export const Content = {
     Footer: {
         Description: 'My portfolio website tells a story about my experiences and projects. Made with TypeScript, React, and love. :)',
         Remark: `Design and develop by ${mainContact.name}`,
-        Copyright: '© 2021, All Rights Reserved',
+        Copyright: '© 2022, All Rights Reserved',
         SiteMap: 'Site Map',
     },
 

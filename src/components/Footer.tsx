@@ -41,14 +41,14 @@ export const Footer = () => {
         // </Grid>
          <Box textAlign="center">
             {/* {renderMainDetail()} */}
-            <Typography fullWidth block variant="body2" color={Style.Color.Light25}>{mainContact.email}</Typography>
+            <Typography fullWidth block variant="body2" color={Style.Color.Light25}>{Content.Footer.Copyright}</Typography>
         </Box>
     )
 
     const renderMobile = () => (
         <Box textAlign="center">
             {/* {renderMainDetail()} */}
-            <Typography fullWidth block variant="body2" color={Style.Color.Light25}>{mainContact.email}</Typography>
+            <Typography fullWidth block variant="body2" color={Style.Color.Light25}>{Content.Footer.Copyright}</Typography>
         </Box>
     )
 
