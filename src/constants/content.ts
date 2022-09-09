@@ -31,8 +31,8 @@ export const Content = {
     },
 
     About: {
-        Title: 'About Me',
-        Subtitle: 'Briefly introduction about my experience in the software development field. Check out my previously attended activities.',
+        Title: 'About Us',
+        Subtitle: 'Lemmedo.it is a software engineering team who is ready to design, develop and deliver top-notch technology solutions. We provide a wide range of services, including app and web development, data analytics, AI, chatbots, IoT, and digital transformation.',
         EducationHeading: 'Educations',
         WorkExperienceHeading: 'Work Experiences',
         ActivitiesHeading: 'Activities and Achievements',

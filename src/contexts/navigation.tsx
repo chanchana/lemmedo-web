@@ -11,7 +11,7 @@ interface INavigationContext {
 }
   
 const defaultNavigation: INavigationContext = {
-    routePath: Parameter.Navigation.Home.Path,
+    routePath: Parameter.Navigation.Showcases.Path,
 	newRoutePath: '',
 };
 

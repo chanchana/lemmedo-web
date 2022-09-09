@@ -103,54 +103,54 @@ export const ShowcaseCard = (props: Props) => {
     const renderCategories = () => (
         <Grid inline marginTop={Style.Spacing.M} gap={Style.Spacing.S}>
             {props.showcaseData.categories.map((value, index) =>
-                <Button key={`category-${index}`} small icon={allCategory[value].icon} backgroundColor={allCategory[value].color}>{allCategory[value].name}</Button>
+                <Button key={`category-${index}`} small icon={allCategory[value].icon} backgroundColor={allCategory[value].color} color={Style.Color.Dark100}>{allCategory[value].name}</Button>
             )}
         </Grid>
     );
 
     const renderCaption = () => (
-        <Typography block variant="body2" marginTop={Style.Spacing.L} maxLines={3}>{props.showcaseData.caption}</Typography>
+        <Typography block variant="body2" marginTop={Style.Spacing.L} maxLines={!isOpened ? 3 : undefined}>{props.showcaseData.caption}</Typography>
     );
 
     const renderDetailDescription = () => (
         <Stack vertical gap={Style.Spacing.L}>
-            {props.showcaseData.details && <Section title="Description">
+            {/* {props.showcaseData.details && <Section title="Description">
                 <Stack vertical gap={Style.Spacing.S}>
                     {props.showcaseData.details.map((detail, index) => (
                         <Typography key={`detail-p-${index}`} variant="body2">{detail}</Typography>
                     ))}
                 </Stack>
-            </Section>}
+            </Section>} */}
             {props.showcaseData.tools && <Section title="Tools">
                 <Tags tags={props.showcaseData.tools} />
             </Section>}
-            {props.showcaseData.images && <Section title="Images">
+            {/* {props.showcaseData.images && <Section title="Images">
                 <Box>
                     <ImagesCarousel images={props.showcaseData.images} />
                 </Box>
-            </Section>}
+            </Section>} */}
         </Stack>
     )
 
     const renderDetailSideDescription = () => (
         <Stack vertical gap={Style.Spacing.L}>
-            {props.showcaseData.contributors && <Section title="Contributors">
+            {/* {props.showcaseData.contributors && <Section title="Contributors">
                 <Stack vertical gap={Style.Spacing.S}>
                     {props.showcaseData.contributors.map((contributor, index) => (
                         <PeopleDisplay key={`people-${index}`} titleVariant="body1" people={contributor.people} label={contributor.responsibility} />
                     ))}
                 </Stack>
-            </Section>}
+            </Section>} */}
             <Section title="Date">
                 <Typography>{props.showcaseData.date}</Typography>
             </Section>
-            {props.showcaseData.externalLinks && <Section title="External Links">
+            {/* {props.showcaseData.externalLinks && <Section title="External Links">
                 <Stack vertical gap={Style.Spacing.S}>
                     {props.showcaseData.externalLinks.map((externalLink, index) => (
                         <ExternalLink key={`ext-link-${index}`} text={externalLink.label || externalLink.url} url={externalLink.url} />
                     ))}
                 </Stack>
-            </Section>}
+            </Section>} */}
         </Stack>
     )
 

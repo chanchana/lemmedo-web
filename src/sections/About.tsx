@@ -23,7 +23,7 @@ export const About = () => {
     return (
         <div ref={sectionRef}>
             <SectionHeading title={Content.About.Title} subtitle={Content.About.Subtitle} />
-            <Stack vertical gap={Style.Spacing.XXL}>
+            {/* <Stack vertical gap={Style.Spacing.XXL}>
                 <Section title={Content.About.WorkExperienceHeading}>
                     <Timeline visibleCount={3} lined={!isMobile}>
                         {workExperiences.map((data, index) => <WorkExperienceCard key={`work-${index}`} workExperienceData={data} />)}
@@ -41,7 +41,7 @@ export const About = () => {
                         </Box>
                     </Card>
                 </Section>
-            </Stack>
+            </Stack> */}
         </div>
     )
 }

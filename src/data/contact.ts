@@ -24,24 +24,24 @@ export const contacts: ContactData[] = [
         label: mainContact.email,
         url: `mailto:${mainContact.email}`,
     },
-    {
-        name: 'iMessage',
-        icon: Icon.Comment,
-        label: 'north1602@gmail.com',
-        url: 'sms:north1602@gmail.com',
-    },
-    {
-        name: 'Skype',
-        icon: Icon.Skype,
-        label: mainContact.name,
-        url: 'https://join.skype.com/invite/sh0rA7w7CClg',
-    },
-    {
-        name: 'Whatsapp',
-        icon: Icon.Whatsapp,
-        label: 'Whatsapp',
-        url: 'https://api.whatsapp.com/qr/W4AW6BSYGCSWH1?autoload=1&app_absent=0',
-    },
+    // {
+    //     name: 'iMessage',
+    //     icon: Icon.Comment,
+    //     label: 'north1602@gmail.com',
+    //     url: 'sms:north1602@gmail.com',
+    // },
+    // {
+    //     name: 'Skype',
+    //     icon: Icon.Skype,
+    //     label: mainContact.name,
+    //     url: 'https://join.skype.com/invite/sh0rA7w7CClg',
+    // },
+    // {
+    //     name: 'Whatsapp',
+    //     icon: Icon.Whatsapp,
+    //     label: 'Whatsapp',
+    //     url: 'https://api.whatsapp.com/qr/W4AW6BSYGCSWH1?autoload=1&app_absent=0',
+    // },
 ]
 
 export const socialContacts: ContactData[] = [

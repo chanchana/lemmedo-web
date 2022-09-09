@@ -1,5 +1,5 @@
 import React from "react"
-import { Card, Grid, Stack, Typography } from "../common"
+import { Box, Card, Grid, Stack, Typography } from "../common"
 import { ContactForm } from "../components/ContactForm"
 import { ContactLink } from "../components/ContactLink"
 import { Section } from "../components/Section"
@@ -19,29 +19,35 @@ export const Contact = () => {
     
     return (
         <div ref={sectionRef}>
-            <SectionHeading largeTitle title={Content.Contact.Title} title2={Content.Contact.Title2} subtitle={Content.Contact.Subtitle} />
-            <Grid columns={isMobile ? 1 : 2} gap={Style.Spacing.L}>
-                <Card heightFitContent>
+            {/* <SectionHeading largeTitle title={Content.Contact.Title} title2={Content.Contact.Title2} subtitle={Content.Contact.Subtitle} /> */}
+            {/* <Grid columns={isMobile ? 1 : 2} gap={Style.Spacing.L}> */}
+                {/* <Card heightFitContent>
                     <ContactForm />
-                </Card>
-                <Card heightFitContent>
-                    <Stack vertical gap={Style.Spacing.XL}>
-                        <Section title={Content.Contact.Contact}>
-                            <Stack vertical gap={Style.Spacing.S}>
-                                {contacts.map((contactData, index) => <ContactLink key={`contact-${index}`} contactData={contactData} />)}
+                </Card> */}
+                <Box center width="100%">
+                    <Card width="100%" maxWidth="400px">
+                        {/* <Box textAlign="center"> */}
+                            <Stack vertical gap={Style.Spacing.XL}>
+                                <Section title={Content.Contact.Contact}>
+                                    <Stack vertical gap={Style.Spacing.S}>
+                                        {contacts.map((contactData, index) => <ContactLink key={`contact-${index}`} contactData={contactData} />)}
+                                    </Stack>
+                                </Section>
+                                <Section title={Content.Contact.BasedIn}>
+                                    <Typography variant="body1">{locationContact}</Typography>
+                                </Section>
+                                <div className="fb-page" data-href="https://www.facebook.com/lemmedoitstudio" data-tabs="" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/lemmedoitstudio" className="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/lemmedoitstudio">lemmedo.it</a></blockquote></div>
+                                {/* <Section title={Content.Contact.Social}>
+                                    <Stack horizontal gap={Style.Spacing.S}>
+                                        {socialContacts.map((contactData, index) => <SocialContactLink key={`social-contact-${index}`} contactData={contactData} />)}
+                                    </Stack>
+                                </Section> */}
                             </Stack>
-                        </Section>
-                        <Section title={Content.Contact.BasedIn}>
-                            <Typography variant="body1">{locationContact}</Typography>
-                        </Section>
-                        <Section title={Content.Contact.Social}>
-                            <Stack horizontal gap={Style.Spacing.S}>
-                                {socialContacts.map((contactData, index) => <SocialContactLink key={`social-contact-${index}`} contactData={contactData} />)}
-                            </Stack>
-                        </Section>
-                    </Stack>
-                </Card>
-            </Grid>
+                        {/* </Box> */}
+                    </Card>
+
+                </Box>
+            {/* </Grid> */}
         </div>
     )
 }

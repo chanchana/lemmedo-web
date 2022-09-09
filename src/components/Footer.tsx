@@ -20,38 +20,42 @@ export const Footer = () => {
         </React.Fragment>
     )
     const renderDesktop = () => (
-        <Grid templateColumn="4fr 2fr 1fr">
-            <Box maxWidth={460}>
-                {renderMainDetail()}
-            </Box>
-            <Box>
-                <Typography variant="heading3" color={Style.Color.Light50}>{Content.Contact.Contact}</Typography>
-                <Typography block marginTop={Style.Spacing.S} variant="body2" color={Style.Color.Light25}>{mainContact.name}</Typography>
-                <Typography block variant="body2" color={Style.Color.Light25}>{mainContact.location}</Typography>
-                <Typography block variant="body2" color={Style.Color.Light25}>{mainContact.email}</Typography>
-            </Box>
-            <Box>
-                <Typography variant="heading3" color={Style.Color.Light50}>{Content.Footer.SiteMap}</Typography>
-                <Grid marginTop={Style.Spacing.S} flowRow>
-                    {getNavigationList().map(({ name, path }, index) =>
-                        <Typography key={`footer-nav-${index}`} interactive onClick={() => setNewRoutePath && setNewRoutePath(path)} variant="body2" color={Style.Color.Light25}>{name}</Typography>
-                    )}
-                </Grid>
-            </Box>
-        </Grid>
+        // <Grid templateColumn="4fr 2fr 1fr">
+        //     <Box maxWidth={460}>
+        //         {renderMainDetail()}
+        //     </Box>
+        //     <Box>
+        //         <Typography variant="heading3" color={Style.Color.Light50}>{Content.Contact.Contact}</Typography>
+        //         <Typography block marginTop={Style.Spacing.S} variant="body2" color={Style.Color.Light25}>{mainContact.name}</Typography>
+        //         <Typography block variant="body2" color={Style.Color.Light25}>{mainContact.location}</Typography>
+        //         <Typography block variant="body2" color={Style.Color.Light25}>{mainContact.email}</Typography>
+        //     </Box>
+        //     <Box>
+        //         <Typography variant="heading3" color={Style.Color.Light50}>{Content.Footer.SiteMap}</Typography>
+        //         <Grid marginTop={Style.Spacing.S} flowRow>
+        //             {getNavigationList().map(({ name, path }, index) =>
+        //                 <Typography key={`footer-nav-${index}`} interactive onClick={() => setNewRoutePath && setNewRoutePath(path)} variant="body2" color={Style.Color.Light25}>{name}</Typography>
+        //             )}
+        //         </Grid>
+        //     </Box>
+        // </Grid>
+         <Box textAlign="center">
+            {/* {renderMainDetail()} */}
+            <Typography fullWidth block variant="body2" color={Style.Color.Light25}>{mainContact.email}</Typography>
+        </Box>
     )
 
     const renderMobile = () => (
         <Box textAlign="center">
-            {renderMainDetail()}
+            {/* {renderMainDetail()} */}
             <Typography fullWidth block variant="body2" color={Style.Color.Light25}>{mainContact.email}</Typography>
         </Box>
     )
 
     return (
-        <Box marginTop={Style.Spacing.XXXL} width="100%" background={Style.Color.Dark100}>
+        <Box marginTop={Style.Spacing.XL} width="100%" background={Style.Color.Dark100}>
             <Container>
-                <Box paddingTop={Style.Spacing.XXXL} paddingBottom={Style.Spacing.XXXL}>
+                <Box paddingTop={Style.Spacing.XL} paddingBottom={Style.Spacing.XL}>
                     {isMobile ? renderMobile() : renderDesktop()}
                 </Box>
             </Container>

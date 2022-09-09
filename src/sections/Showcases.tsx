@@ -1,4 +1,4 @@
-import { Grid } from "../common"
+import { Box, Grid } from "../common"
 import { CategorySelect } from "../components/CategorySelect"
 import { SectionHeading } from "../components/SectionHeader"
 import { Content } from "../constants/content"
@@ -29,9 +29,11 @@ export const Showcases = () => {
 
     return (
         <div ref={sectionRef}>
-            <SectionHeading title={Content.Showcases.Title} subtitle={Content.Showcases.Subtitle}>
+            {/* <SectionHeading title={Content.Showcases.Title} subtitle={Content.Showcases.Subtitle}>
+            </SectionHeading> */}
+            <Box center marginTop={Style.Spacing.L} marginBottom={Style.Spacing.L}>
                 <CategorySelect onChange={handleChangeCategory} />
-            </SectionHeading>
+            </Box>
             <Grid columns={isMobile ? 1 : 2} gap={Style.Spacing.L}>
                 {visibleShowcases.map((showcase, index) => <ShowcaseCard key={`showcase-${index}`} showcaseData={showcase} />)}
             </Grid>

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Box, Button } from "../common";
-import { Icon } from "../styles/icons";
+import { getIconWithColor, Icon } from "../styles/icons";
 import { Style } from "../styles/style";
 
 interface Props {
@@ -37,11 +37,11 @@ export const ModalMinimizeButton = (props: Props) => (
     props.isMobile ?
     <MobileButtonContainer opacity={props.opened ? 1 : 0} onClick={props.onClick}>
         <MobileButton>
-            {Icon.XMark}
+            {getIconWithColor(Icon.XMark, Style.Color.Dark100)}
         </MobileButton>
     </MobileButtonContainer>
     :
     <Box position="absolute" opacity={props.opened ? 1 : 0} transition="all ease 0.5s" top={Style.Spacing.XXL} right={Style.Spacing.XXL}>
-        <Button onClick={props.onClick} icon={Icon.DownLeftAndUpRightToCenter} />
+        <Button  onClick={props.onClick} icon={Icon.DownLeftAndUpRightToCenter} />
     </Box>
 )

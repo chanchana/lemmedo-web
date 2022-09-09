@@ -1,4 +1,4 @@
-import KMUTTSrc from '../assets/logos/KMUTT.png'
+import KMUTTSrc from '../assets/logos/kmutt.png'
 
 export interface EducationData {
     duration: string;

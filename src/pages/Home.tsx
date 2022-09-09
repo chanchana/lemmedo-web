@@ -14,10 +14,10 @@ export const Home = () => {
         <React.Fragment>
             <Container>
                 <NavigationBar />
-                <Title />
-                <Services />
+                {/* <Title /> */}
+                {/* <Services /> */}
                 <Showcases />
-                <Reviews />
+                {/* <Reviews /> */}
                 <About />
                 <Contact />
             </Container>

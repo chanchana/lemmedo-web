@@ -8,19 +8,19 @@ import { useNavigation } from "../hooks/useNavigation"
 import { Style } from "../styles/style"
 
 export const Reviews = () => {
-    const sectionRef = React.useRef(null)
-    useNavigation(sectionRef, Parameter.Navigation.Reviews.Path)
+    // const sectionRef = React.useRef(null)
+    // useNavigation(sectionRef, Parameter.Navigation.Reviews.Path)
 
-    return (
-        <div ref={sectionRef}>
-            <SectionHeading title={Content.Reviews.Title} subtitle={Content.Reviews.Subtitle} />
-            <OverflowBox extended>
-                <Box paddingBottom={Style.Spacing.L}>
-                    <Grid inline gap={Style.Spacing.L}>
-                        {Content.Reviews.Data.map((review, index) => <ReviewCard key={`review-${index}`} data={review} />)}
-                    </Grid>
-                </Box>
-            </OverflowBox>
-        </div>
-    )
+    // return (
+    //     <div ref={sectionRef}>
+    //         <SectionHeading title={Content.Reviews.Title} subtitle={Content.Reviews.Subtitle} />
+    //         <OverflowBox extended>
+    //             <Box paddingBottom={Style.Spacing.L}>
+    //                 <Grid inline gap={Style.Spacing.L}>
+    //                     {Content.Reviews.Data.map((review, index) => <ReviewCard key={`review-${index}`} data={review} />)}
+    //                 </Grid>
+    //             </Box>
+    //         </OverflowBox>
+    //     </div>
+    // )
 }

@@ -3,21 +3,9 @@ export const Parameter = {
     RouteQueryStringKey: 'route',
 
     Navigation: {
-        Home: {
-            Name: 'Home',
-            Path: 'home',
-        },
-        Services: {
-            Name: 'Services',
-            Path: 'services',
-        },
         Showcases: {
-            Name: 'Showcases',
-            Path: 'showcases',
-        },
-        Reviews: {
-            Name: 'Reviews',
-            Path: 'reviews',
+            Name: 'Gallery',
+            Path: 'gallery',
         },
         About: {
             Name: 'About',

@@ -1,14 +1,19 @@
 export const Style = {
     Color: {
-        Dark100: '#0A0A0C',
-        Dark75: '#1A1923',
-        Dark50: '#28243E',
-        Dark25: '#423C66',
+        // Dark100: '#0A0A0C',
+        // Dark75: '#1A1923',
+        // Dark50: '#28243E',
+        // Dark25: '#423C66',
 
-        Light100: '#E9E9EC',
-        Light75: '#C9C8CF',
-        Light50: '#A9A7B2',
-        Light25: '#797979',
+        Light100: '#0A0A0C',
+        Light75: '#1A1923',
+        Light50: '#28243E',
+        Light25: '#423C66',
+
+        Dark100: '#FFFFFF',
+        Dark75: '#FAFAFA',
+        Dark50: '#FCFCFC',
+        Dark25: '#FFFFFF',
 
         Cyan: '#0BB2CB',
         Yellow: '#FFC761',
@@ -18,7 +23,7 @@ export const Style = {
         Orange: '#F8781D',
     },
     FilteredColor: {
-        Dark25White: '#4f477a',
+        Dark25White: '#AFAFAF',
     },
     Typography: {
         Heading1: 'font-style: normal;font-weight: bold;font-size: 2.375rem;line-height: 110%;',
@@ -66,11 +71,11 @@ export const Style = {
         MaxImageHeight: '720px',
         BorderRadius: '8px',
         BoxShadow: {
-            S: '0px 8px 16px rgba(0, 0, 0, 0.25)',
-            M: '0px 8px 32px rgba(0, 0, 0, 0.65)',
-            L: '0px 8px 72px rgba(0, 0, 0, 0.90)',
+            S: '0px 8px 32px rgba(0, 0, 0, 0.10)',
+            M: '0px 8px 42px rgba(0, 0, 0, 0.20)',
+            L: '0px 8px 84px rgba(0, 0, 0, 0.30)',
         },
-        NormalOutlineBoxShadow: '0 0 0 0px #6d659c',
-        HoverOutlineBoxShadow: '0 0 0 4px #6d659c',
+        NormalOutlineBoxShadow: '0 0 0 0px #6d659c30',
+        HoverOutlineBoxShadow: '0 0 0 4px #6d659c30',
     },
 };
