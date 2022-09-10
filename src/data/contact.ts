@@ -13,7 +13,7 @@ export const locationContact = 'Bangkok, Thailand'
 
 export const mainContact = {
     name: 'Chanchana Wicha',
-    email: 'wic.chanchana@gmail.com',
+    email: 'lemmedoit.studio@gmail.com',
     location: `${locationContact}, 10110`,
 }
 
